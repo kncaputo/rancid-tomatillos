@@ -1,14 +1,16 @@
 import React from 'react';
+import MovieCard from '../MovieCard/MovieCard';
 import './MovieContainer.css';
 
 const MovieContainer = ({movies}) => {
   const movieCards = movies.map(movie => {
     return (
-      <section className='card'>
-        <img className='card-img' src={movie.poster_path}/>
-        <h3>{movie.title}</h3>
-
-      </section>
+      <MovieCard
+        title={movie.title}
+        src={movie.poster_path}
+        id={movie.id}
+        key={movie.id}
+      />
     )
   })
 
@@ -18,4 +20,5 @@ const MovieContainer = ({movies}) => {
     </section>
   )
 }
+
 export default MovieContainer;
