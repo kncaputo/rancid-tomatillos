@@ -26,7 +26,7 @@ class App extends Component {
       <main className="App">
         <Header />
         {Object.keys(this.state.movie).length === 0 && <MovieContainer movies={this.state.movies} getSingleMovie={this.getSingleMovie}/>}
-        {Object.keys(this.state.movie).length > 0 && <MovieDetails />}
+        {Object.keys(this.state.movie).length > 0 && <MovieDetails movie={this.state.movie}/>}
       </main>
     );
   }
