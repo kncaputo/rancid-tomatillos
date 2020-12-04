@@ -1,7 +1,7 @@
 import React from 'react';
-import { fireEvent, screen, render } from "@testing-library/react";
-import "@testing-library/jest-dom";
-import MovieCard from "./MovieCard";
+import { fireEvent, screen, render } from '@testing-library/react';
+import '@testing-library/jest-dom';
+import MovieCard from './MovieCard';
 
 describe('MovieCard', () => {
   beforeEach() {
