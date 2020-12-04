@@ -4,7 +4,7 @@ import '@testing-library/jest-dom';
 import MovieContainer from './MovieContainer';
 
 describe('MovieContainer', () => {
-    it('should render correctly', () => {
+    it('should render correctly on page load', () => {
 
     })
 
