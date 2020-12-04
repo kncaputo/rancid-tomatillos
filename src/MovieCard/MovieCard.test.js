@@ -4,7 +4,9 @@ import "@testing-library/jest-dom";
 import MovieCard from "./MovieCard";
 
 describe('MovieCard', () => {
-  it('should render correctly', () => {
+  beforeEach() {
+    const mockGetSingleMovie = jest.fn();
+
     render(
       <MovieCard
         title='Money Plane'
@@ -12,16 +14,26 @@ describe('MovieCard', () => {
         alt='Money Plane'
         id={1}
         key={1}
-        getSingleMovie={jest.fn()}
+        getSingleMovie={mockGetSingleMovie}
       />
     );
+  }
+
+  it('should render correctly', () => {
     const title = screen.getByText('Money Plane');
     const altText = screen.getByText('Money Plane');
-    
 
     expect(title).toBeInTheDocument();
     expect(altText).toBeInTheDocument();
-    // TODO: Test for id and key
+  })
+
+  it('should call getSingleMovie with the correct id', () {
+    const mockGetSingleMovie = jest.fn();
+
+    const movieCard = screen.getByText('Money Plane')
+    fireEvent.click(movieCard);
+
+    expect(mockGetSingleMovie).toHaveBeenCalledWith(2);
   })
 })
 
