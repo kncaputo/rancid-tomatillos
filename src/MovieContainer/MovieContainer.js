@@ -8,6 +8,7 @@ const MovieContainer = ({movies, getSingleMovie}) => {
       <MovieCard
         title={movie.title}
         src={movie.poster_path}
+        alt={movie.title}
         id={movie.id}
         key={movie.id}
         getSingleMovie={getSingleMovie}
