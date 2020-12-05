@@ -27,7 +27,7 @@ class App extends Component {
 	}
 
 	goHome = () => {
-		this.setState({movie: {}})
+		this.setState({movie: []})
 	}
 
 	render() {
@@ -36,15 +36,11 @@ class App extends Component {
 				<header>
 					<h1>Rancid Tomatillos</h1>
 					<nav>
-						{Object.keys(this.state.movie).length > 0 && <button onClick={() => {this.goHome()}}>Back</button>}
+						{this.state.movie.length !== 0 && <button onClick={() => {this.goHome()}}>Back</button>}
 					</nav>
 				</header>
         {this.state.movie.length === 0 && this.state.error === '' && <MovieContainer movies={this.state.movies} getSingleMovie={this.getSingleMovie}/>}
-			  <MovieDetails movie={this.state.movie}/>
-        {/* {this.state.movie.length > 0 && <MovieDetails movie={this.state.movie[0]}/>} */}
-
-				{/* {Object.keys(this.state.movie).length === 0 && this.state.error === '' && <MovieContainer movies={this.state.movies} getSingleMovie={this.getSingleMovie}/>}
-				{Object.keys(this.state.movie).length > 0 && <MovieDetails movie={this.state.movie}/>} */}
+			  {this.state.movie.length !== 0 && <MovieDetails movie={this.state.movie}/>}
 			</main>
 		);
 	}
