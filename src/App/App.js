@@ -21,10 +21,8 @@ class App extends Component {
   }
 
 	getSingleMovie = (id) => {
-    //taking a quick pom!! I think we need to set const clickedMovie = fetchSingleMovie(id), then 
-    //setState({movie: clickedMovie})
     fetchSingleMovie(id)
-    .then(data => console.log(data))
+    .then(data => this.setState({ movie: data.movie }))
     .catch(error => this.setState({ error }))
 	}
 
@@ -42,8 +40,8 @@ class App extends Component {
 					</nav>
 				</header>
         {this.state.movie.length === 0 && this.state.error === '' && <MovieContainer movies={this.state.movies} getSingleMovie={this.getSingleMovie}/>}
-				{this.state.movie.length > 0 && <MovieDetails movie={this.state.movie}/>}
-
+			  <MovieDetails movie={this.state.movie}/>
+        {/* {this.state.movie.length > 0 && <MovieDetails movie={this.state.movie[0]}/>} */}
 
 				{/* {Object.keys(this.state.movie).length === 0 && this.state.error === '' && <MovieContainer movies={this.state.movies} getSingleMovie={this.getSingleMovie}/>}
 				{Object.keys(this.state.movie).length > 0 && <MovieDetails movie={this.state.movie}/>} */}
