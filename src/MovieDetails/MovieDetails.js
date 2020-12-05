@@ -8,7 +8,7 @@ const MovieDetails = ({ movie }) => {
             <h1>{movie.movie.title}</h1>
             <p>{movie.movie.overview}</p>
             <p>Average User Rating: {movie.movie.average_rating}</p>
-            <p>Genre: {movie.movie.genres[0].name}</p>
+            {/* <p>Genre: {movie.genres[0].name}</p> */}
             <p>Budget: ${movie.movie.budget}</p>
             <p>Total Revenue: ${movie.movie.revenue}</p>
             <p>Runtime: {movie.movie.runtime}</p>
