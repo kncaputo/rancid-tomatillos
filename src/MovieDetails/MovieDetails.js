@@ -12,7 +12,7 @@ const MovieDetails = ({ movie }) => {
 			<p>Release Date: {movie.release_date}</p>
       <p>Budget: ${movie.budget}</p>
       <p>Total Revenue: ${movie.revenue}</p>
-      <p>Runtime: {movie.runtime}</p>
+      <p>Runtime: {movie.runtime} minutes</p>
     </section>
   )
 }

@@ -17,13 +17,13 @@ class App extends Component {
 	}
   componentDidMount = () => {
     fetchMovies().then(data => this.setState({ movies: data.movies }))
-    .catch(error => this.setState({ error }))
+    .catch(error => this.setState({ error: error.message }))
   }
 
 	getSingleMovie = (id) => {
     fetchSingleMovie(id)
     .then(data => this.setState({ movie: data.movie }))
-    .catch(error => this.setState({ error }))
+    .catch(error => this.setState({ error: error.message }))
 	}
 
 	goHome = () => {
