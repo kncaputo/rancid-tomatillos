@@ -24,7 +24,7 @@ const MovieContainer = ({ movies, getSingleMovie, statusCode, error }) => {
       </section> :
       <section>
         <h1>Whoops, it looks like something went wrong!</h1>
-        <p>{statusCode} </p>
+        <p>{statusCode} {error}</p>
       </section>}
     </section>
   )

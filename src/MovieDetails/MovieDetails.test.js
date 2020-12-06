@@ -5,7 +5,7 @@ import MovieDetails from './MovieDetails';
 
 
 describe('MovieDetails', () => {
-	it('should render a single movie', () => {
+	it('should render a single movie if status code is below 400', () => {
 		
 		const singleMovie = {
 			'movie': {
@@ -24,7 +24,14 @@ describe('MovieDetails', () => {
 			}
 		};
 
-		render( <MovieDetails movie={singleMovie.movie} />)
+		render( 
+			<MovieDetails 
+				movie={singleMovie.movie}
+				statusCode={300}  
+				error=''  
+			/>
+		)
+
 		const title = screen.getByText('Rogue');
 		const releaseDate = screen.getByText('Release Date: 2020-08-20');
 		const genres = screen.getByText('Genre: Action');
@@ -33,7 +40,4 @@ describe('MovieDetails', () => {
 		expect(releaseDate).toBeInTheDocument();
 		expect(genres).toBeInTheDocument();
 	})
-
-	it('')
-
 })

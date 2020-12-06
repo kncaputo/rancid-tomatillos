@@ -13,7 +13,8 @@ class App extends Component {
 			movies: [],
       movie: null,
 			error: '',
-			statusCode: 0
+			statusCode: 0,
+			isMovieDetails: false
 		}
 	}
 
@@ -30,6 +31,7 @@ class App extends Component {
 	}
 	
 	getSingleMovie = (id) => {
+		this.setState({ isMovieDetails: true })
     fetchSingleMovie(id)
     .then(data => {
 			if(typeof data === 'object') {
@@ -42,7 +44,7 @@ class App extends Component {
 	}
 
 	goHome = () => {
-		this.setState({ movie: null, statusCode: 0})
+		this.setState({ isMovieDetails: false, movie: null, statusCode: 0})
 	}
 
 	render() {
@@ -51,19 +53,22 @@ class App extends Component {
 				<header>
 					<h1>Rancid Tomatillos</h1>
 					<nav>
-						{(this.state.movie || this.state.statusCode > 400) && <button onClick={() => {this.goHome()}}>Back</button>}
+						{this.state.isMovieDetails && <button onClick={() => {this.goHome()}}>Back</button>}
 					</nav>
 				</header>
 				{this.state.movie === null ? 
-				<MovieContainer 
-					movies={this.state.movies} 
-					getSingleMovie={this.getSingleMovie} 
-					statusCode={this.state.statusCode}  
-					error={this.state.error} /> :
-				<MovieDetails 
-					movie={this.state.movie}
-					statusCode={this.state.statusCode}  
-					error={this.state.error} />}
+					<MovieContainer 
+						movies={this.state.movies} 
+						getSingleMovie={this.getSingleMovie} 
+						statusCode={this.state.statusCode}  
+						error={this.state.error} 
+					/> :
+					<MovieDetails 
+						movie={this.state.movie}
+						statusCode={this.state.statusCode}  
+						error={this.state.error} 
+					/>
+				}
 			</main>
 		);
 	}
