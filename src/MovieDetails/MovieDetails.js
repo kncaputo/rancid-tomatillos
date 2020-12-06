@@ -2,6 +2,7 @@ import React from 'react';
 import './MovieDetails.css';
 
 const MovieDetails = ({ movie, statusCode, error }) => {
+  console.log({ movie, statusCode, error })
   return (
     <section>
       {statusCode < 400 ? 

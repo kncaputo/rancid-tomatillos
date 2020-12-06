@@ -19,13 +19,25 @@ class App extends Component {
 
   componentDidMount = () => {
 		fetchMovies()
-		.then(data => this.setState({ movies: data.movies }))
+		.then(data => {
+			if(typeof data === 'object') {
+				this.setState({ movies: data.movies })
+			} else {
+				this.setState({ statusCode: data })
+			}
+		})
 		.catch(error => this.setState({ error: error.message }))
 	}
 	
 	getSingleMovie = (id) => {
     fetchSingleMovie(id)
-    .then(data => this.setState({ movie: data.movie, statusCode: data }))
+    .then(data => {
+			if(typeof data === 'object') {
+				this.setState({ movie: data.movie })
+			} else {
+				this.setState({ statusCode: data })
+			}
+		})
 		.catch(error => this.setState({ error: error.message }))
 	}
 
@@ -46,6 +58,7 @@ class App extends Component {
 				<MovieContainer 
 					movies={this.state.movies} 
 					getSingleMovie={this.getSingleMovie} 
+					statusCode={this.state.statusCode}  
 					error={this.state.error} /> :
 				<MovieDetails 
 					movie={this.state.movie}
