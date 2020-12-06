@@ -42,7 +42,7 @@ class App extends Component {
 	}
 
 	goHome = () => {
-		this.setState({ movie: null })
+		this.setState({ movie: null, statusCode: 0})
 	}
 
 	render() {
@@ -51,7 +51,7 @@ class App extends Component {
 				<header>
 					<h1>Rancid Tomatillos</h1>
 					<nav>
-						{this.state.movie && <button onClick={() => {this.goHome()}}>Back</button>}
+						{(this.state.movie || this.state.statusCode > 400) && <button onClick={() => {this.goHome()}}>Back</button>}
 					</nav>
 				</header>
 				{this.state.movie === null ? 
