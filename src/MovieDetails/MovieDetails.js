@@ -1,10 +1,10 @@
 import React from 'react';
 import './MovieDetails.css';
 
-const MovieDetails = ({ movie, error }) => {
+const MovieDetails = ({ movie, statusCode, error }) => {
   return (
     <section>
-      {!error ? 
+      {statusCode < 400 ? 
       <section>
         <img className='card-img' src={movie.backdrop_path} />
         <h1>{movie.title}</h1>
@@ -18,6 +18,7 @@ const MovieDetails = ({ movie, error }) => {
       </section> :
       <section>
         <h1>Whoops, it looks like something went wrong!</h1>
+        <p>{statusCode}</p>
       </section>}
     </section>
   )

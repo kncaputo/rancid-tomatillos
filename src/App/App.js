@@ -12,19 +12,21 @@ class App extends Component {
 		this.state = {
 			movies: [],
       movie: null,
-      error: ''
+			error: '',
+			statusCode: 0
 		}
 	}
 
   componentDidMount = () => {
-    fetchMovies().then(data => this.setState({ movies: data.movies }))
-    .catch(error => this.setState({ error: error.message }))
-  }
-
+		fetchMovies()
+		.then(data => this.setState({ movies: data.movies }))
+		.catch(error => this.setState({ error: error.message }))
+	}
+	
 	getSingleMovie = (id) => {
     fetchSingleMovie(id)
-    .then(data => this.setState({ movie: data.movie }))
-    .catch(error => this.setState({ error: error.message }))
+    .then(data => this.setState({ movie: data.movie, statusCode: data }))
+		.catch(error => this.setState({ error: error.message }))
 	}
 
 	goHome = () => {
@@ -41,8 +43,14 @@ class App extends Component {
 					</nav>
 				</header>
 				{this.state.movie === null ? 
-				<MovieContainer movies={this.state.movies} getSingleMovie={this.getSingleMovie} error={this.state.error} /> :
-				<MovieDetails movie={this.state.movie} error={this.state.error} />}
+				<MovieContainer 
+					movies={this.state.movies} 
+					getSingleMovie={this.getSingleMovie} 
+					error={this.state.error} /> :
+				<MovieDetails 
+					movie={this.state.movie}
+					statusCode={this.state.statusCode}  
+					error={this.state.error} />}
 			</main>
 		);
 	}
