@@ -1,19 +1,28 @@
 import React from 'react';
 import './MovieDetails.css';
 
-const MovieDetails = ({ movie }) => {
-    return (
-        <section>
-            <img className='card-img' src={movie.movie.backdrop_path} />
-            <h1>{movie.movie.title}</h1>
-            <p>{movie.movie.overview}</p>
-            <p>Average User Rating: {movie.movie.average_rating}</p>
-            <p>Genre: {movie.movie.genres[0].name}</p>
-            <p>Budget: ${movie.movie.budget}</p>
-            <p>Total Revenue: ${movie.movie.revenue}</p>
-            <p>Runtime: {movie.movie.runtime}</p>
-        </section>
-    )
+const MovieDetails = ({ movie, statusCode, error }) => {
+  return (
+    <section>
+      {statusCode < 400 ? 
+				<section>
+					<img className='card-img' src={movie.backdrop_path} />
+					<h1>{movie.title}</h1>
+					<p>{movie.overview}</p>
+					<p>Average User Rating: {movie.average_rating}</p>
+					<p>Genre: {movie.genres[0]}</p>
+					<p>Release Date: {movie.release_date}</p>
+					<p>Budget: ${movie.budget}</p>
+					<p>Total Revenue: ${movie.revenue}</p>
+					<p>Runtime: {movie.runtime} minutes</p>
+				</section> :
+				<section>
+					<h1>Whoops, it looks like something went wrong!</h1>
+					<p>{statusCode} {errror}</p>
+				</section>
+			}
+    </section>
+  )
 }
 
 export default MovieDetails;
