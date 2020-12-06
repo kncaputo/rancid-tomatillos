@@ -26,7 +26,14 @@ describe('MovieContainer', () => {
       }
     ];
 
-    render(<MovieContainer movies={mockMovies} getSingleMovie={mockGetSingleMovie} />);
+    render(
+      <MovieContainer 
+        movies={mockMovies} 
+        getSingleMovie={mockGetSingleMovie} 
+        statusCode={300} 
+        error=''
+      />
+    );
 
     expect(screen.getByText('Money Plane')).toBeInTheDocument();
     expect(screen.getByText('Mulan')).toBeInTheDocument();
