@@ -2,7 +2,7 @@ import React from 'react';
 import MovieCard from '../MovieCard/MovieCard';
 import './MovieContainer.css';
 
-const MovieContainer = ({movies, getSingleMovie}) => {
+const MovieContainer = ({ movies, getSingleMovie }) => {
   const movieCards = movies.map(movie => {
     return (
       <MovieCard

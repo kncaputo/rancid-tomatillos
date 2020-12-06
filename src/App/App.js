@@ -15,6 +15,7 @@ class App extends Component {
       error: ''
 		}
 	}
+	
   componentDidMount = () => {
     fetchMovies().then(data => this.setState({ movies: data.movies }))
     .catch(error => this.setState({ error: error.message }))
@@ -39,10 +40,9 @@ class App extends Component {
 						{this.state.movie && <button onClick={() => {this.goHome()}}>Back</button>}
 					</nav>
 				</header>
-		{this.state.movie === null && this.state.error === '' ? 
-		<MovieContainer movies={this.state.movies} getSingleMovie={this.getSingleMovie}/> :
-		<MovieDetails movie={this.state.movie}/>}
-		
+				{this.state.movie === null && this.state.error === '' ? 
+				<MovieContainer movies={this.state.movies} getSingleMovie={this.getSingleMovie}/> :
+				<MovieDetails movie={this.state.movie}/>}
 			</main>
 		);
 	}

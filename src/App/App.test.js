@@ -8,13 +8,16 @@ jest.mock('../apiCalls');
 describe('App', () => {
 	beforeEach(() => {
 		fetchMovies.mockResolvedValueOnce({
-			movies: [{
-				"id": 1,
-				"title": "Money Plane",
-			}, {
-				"id": 2,
-				"title": "Borat",}
-		]})
+			movies: [
+				{
+					"id": 1,
+					"title": "Money Plane",
+				}, {
+					"id": 2,
+					"title": "Borat",
+				}
+			]
+		})
 
 		render(<App />)
 	})

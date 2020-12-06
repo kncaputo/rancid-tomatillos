@@ -20,8 +20,9 @@ describe('MovieDetails', () => {
 				'revenue':0,
 				'runtime':106,
 				'tagline':'When the hunter becomes the prey.',
-				'average_rating':6.428571428571429}
+				'average_rating':6.428571428571429
 			}
+		};
 
 		render( <MovieDetails movie={singleMovie.movie} />)
 		const title = screen.getByText('Rogue');
@@ -32,4 +33,5 @@ describe('MovieDetails', () => {
 		expect(releaseDate).toBeInTheDocument();
 		expect(genres).toBeInTheDocument();
 	})
+
 })
