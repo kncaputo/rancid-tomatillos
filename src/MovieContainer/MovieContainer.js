@@ -2,7 +2,7 @@ import React from 'react';
 import MovieCard from '../MovieCard/MovieCard';
 import './MovieContainer.css';
 
-const MovieContainer = ({ movies, getSingleMovie }) => {
+const MovieContainer = ({ movies, getSingleMovie, error }) => {
   const movieCards = movies.map(movie => {
     return (
       <MovieCard
@@ -17,8 +17,14 @@ const MovieContainer = ({ movies, getSingleMovie }) => {
   })
 
   return (
-    <section className='movie-container'>
-      {movieCards}
+    <section>
+     {!error ? 
+      <section className='movie-container'>
+        {movieCards}
+      </section> :
+      <section>
+        <h1>Whoops, it looks like something went wrong!</h1>
+      </section>}
     </section>
   )
 }
