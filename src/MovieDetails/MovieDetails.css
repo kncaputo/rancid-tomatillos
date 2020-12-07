@@ -1,0 +1,14 @@
+.overview {
+	display: flex;
+	flex-direction: column;
+	border: gray solid 3px;
+	padding: 5px;
+  max-width: 490px;      
+}
+
+section.movie-details-box {
+	display: flex;
+	flex-direction: column;
+	/* justify-content: center; */
+	align-items: center;
+}

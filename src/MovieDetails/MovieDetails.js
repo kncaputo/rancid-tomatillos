@@ -12,11 +12,12 @@ const MovieDetails = ({ movie, statusCode, error }) => {
   return (
     <section>
       {statusCode < 400 ? 
-				<section>
+				<section className='movie-details-box'>
 					<img className='card-img' src={movie.backdrop_path} />
 					<h1><b>{movie.title}</b></h1>
-					<p><b>Overview:</b> <br/> {movie.overview}</p>
-					<p><b>Average User Rating:</b> {movie.average_rating.toFixed(2)}</p>
+
+					<div className='overview'><p><b>Overview:</b><br/>{movie.overview}</p>
+					<p><b>Average User Rating:</b> {movie.average_rating.toFixed(2)}</p></div>
 					<p><b>Genre:</b> {movie.genres[0]}</p>
 					<p><b>Release Date:</b> {movie.release_date}</p>
 					{ formatNum(movie.budget, 'Budget') }
