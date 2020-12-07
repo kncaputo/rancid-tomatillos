@@ -9,6 +9,7 @@ const MovieContainer = ({ movies, getSingleMovie, statusCode, error }) => {
         title={movie.title}
         src={movie.poster_path}
         alt={movie.title}
+        rating={movie.average_rating}
         id={movie.id}
         key={movie.id}
         getSingleMovie={getSingleMovie}
