@@ -1,7 +1,8 @@
 import React from 'react';
+import ReactPlayer from 'react-player';
 import './MovieDetails.css';
 
-const MovieDetails = ({ movie, statusCode, error }) => {
+const MovieDetails = ({ movie, statusCode, error, movieTrailer }) => {
 
 	const formatNum = (num, type) => {
 		return (
@@ -31,6 +32,7 @@ const MovieDetails = ({ movie, statusCode, error }) => {
     <section>
       {statusCode < 400 ? 
 				<section className='movie-details-box'>
+          <ReactPlayer url={`https://www.youtube.com/watch?v=${movieTrailer.key}`} />
 					<img className='card-img backdrop' src={movie.backdrop_path} />
           <section className='up-first'>
             <img className='card-img poster' src={movie.poster_path} />
