@@ -19,10 +19,10 @@ const MovieDetails = ({ movie, statusCode, error, movieTrailer }) => {
       return "Unavailable"
     } else if (movie.genres.length > 1) {
       let commaList = movie.genres.reduce((genres, genre) => {
-        genres += ', ' + genre
+        genres += ' | ' + genre
         return genres
       }, '')
-      return commaList.slice(2, commaList.length);
+      return commaList.slice(3, commaList.length);
     } else {
       return movie.genres[0];
     }
