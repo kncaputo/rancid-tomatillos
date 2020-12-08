@@ -3,8 +3,9 @@ import Header from '../Header/Header';
 import MovieContainer from '../MovieContainer/MovieContainer';
 import MovieDetails from '../MovieDetails/MovieDetails';
 // import movieData from '../data.js';
+import ReactPlayer from 'react-player';
 import './App.css';
-import { fetchSingleMovie, fetchMovies } from '../apiCalls';
+import { fetchSingleMovie, fetchMovies, fetchTrailer } from '../apiCalls';
 
 class App extends Component {
 	constructor() {
@@ -14,7 +15,8 @@ class App extends Component {
       movie: null,
 			error: '',
 			statusCode: 0,
-			isMovieDetails: false
+			isMovieDetails: false,
+			movieTrailer: null
 		}
 	}
 
@@ -41,6 +43,14 @@ class App extends Component {
 			}
 		})
 		.catch(error => this.setState({ error: error.message }))
+
+		this.getMovieTrailer(id);
+	}
+
+	getMovieTrailer(id) {
+		fetchTrailer(id)
+		.then(data => this.setState({ movieTrailer: data.videos }))
+		.catch(error => console.log(error))
 	}
 
 	goHome = () => {
@@ -67,6 +77,7 @@ class App extends Component {
 						movie={this.state.movie}
 						statusCode={this.state.statusCode}  
 						error={this.state.error} 
+						movieTrailer={this.state.movieTrailer[0]}
 					/>
 				}
 			</main>
