@@ -10,17 +10,36 @@
 	display: flex;
 	flex-direction: row;
 	background: #d3d3d342;
+	width: 490px;
+	margin: 20px;
+}
 
+@media only screen and (max-width: 600px) {
+  .up-first {
+		width: 90vw;
+	}
+	
+	.poster {
+		display: none;
+	}
+}
+
+.poster-aside {
+	margin-left: 15px;
 }
 
 .movie-title {
-	font-size: 30px;
+	font-size: 25px;
+	text-align: center;
+}
+
+.ratings-box {
 }
 
 .overview-box {
 	display: flex;
 	flex-direction: column;
-	align-items: center;
+	align-items: baseline;
 	padding: 10px;
 	max-width: 490px;
 	margin: 20px;
@@ -32,6 +51,7 @@
 
 .overview-text {
 	margin: 0 5px;
+	text-align: left;
 }
 
 section.movie-details-box {
@@ -51,13 +71,13 @@ section.movie-details-box {
 
 .l-details {
 	text-align: right;
-	margin: 5px 10px;
+	margin: 0px 10px;
 	width: 200px;
 }
 
 .r-details {
 	text-align: left;
-	margin: 5px 10px;
+	margin: 0px 10px;
 	width: 200px;
 }
 

@@ -36,18 +36,17 @@ const MovieDetails = ({ movie, statusCode, error }) => {
             <img className='card-img poster' src={movie.poster_path} />
             <section className='poster-aside'>
               <h1 className='movie-title'><b>{movie.title}</b></h1>
-              <section className='details-box'>
+              <section className='ratings-box'>
                 <p className='l-details'><b>Average User Rating:</b></p>
                 <p className='r-details'>{movie.average_rating.toFixed(2)}</p>
               </section>
-              <section className='overview-box'>
-                <p className='overview-title'><b>Overview:</b></p>
-                <p className='overview-text'>{movie.overview}</p>
-              </section>
             </section>
           </section>
-					
-          
+
+					<section className='overview-box'>
+            <p className='overview-title'><b>Movie Info:</b></p>
+            <p className='overview-text'>{movie.overview}</p>
+          </section>
 					<section className='details-box'>
             <p className='l-details'><b>Genre:</b></p>
             <p className='r-details'>{ formatGenres(movie) }</p>
