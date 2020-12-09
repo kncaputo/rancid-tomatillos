@@ -62,15 +62,16 @@ class App extends Component {
 			<main className="App">
 				<header>
 					<h1>Rancid Tomatillos</h1>
-			
+				
 					<nav>
+						<NavLink to='/movies'>
 						{this.state.isMovieDetails && <button onClick={() => {this.goHome()}}>Back</button>}
+						</NavLink>
 					</nav>
 				</header>
-				{/* {this.state.movie === null ?  */}
 					<Route 
 						exact 
-						path='/' 
+						path='/movies' 
 						render={() => {
 							return (
 							<MovieContainer 
@@ -84,7 +85,7 @@ class App extends Component {
 					/> 
 					<Route 
 						exact
-						path='/:id'
+						path='/movies/:id'
 						render={() => {
 							if (!this.state.movie) {
 								return(
