@@ -1,8 +1,10 @@
 import React from 'react';
 import ReactPlayer from 'react-player';
+import AliceCarousel from 'react-alice-carousel';
 import './MovieDetails.css';
+import 'react-alice-carousel/lib/alice-carousel.css';
 
-const MovieDetails = ({ movie, statusCode, error, movieTrailer }) => {
+const MovieDetails = ({ movie, statusCode, error, movieTrailers }) => {
 
 	const formatNum = (num, type) => {
 		return (
@@ -28,11 +30,41 @@ const MovieDetails = ({ movie, statusCode, error, movieTrailer }) => {
     }
   }
 
+  const handleDragStart = (e) => e.preventDefault();
+  console.log(movieTrailers)
+  const items = movieTrailers.map(trailer => {
+    return (
+      <source 
+        src={`https://www.youtube.com/watch?v=${trailer.key}`}
+        type="video/mp4" 
+        key={trailer.key}
+        onDragStart={handleDragStart} 
+        className="alice-carousel_stage-item"
+      />
+    )
+  })
+
+  // const items = [
+  //   <source 
+  //     src='https://www.youtube.com/watch?v=${movieTrailer.key}' 
+  //     type="video/mp4" 
+  //     onDragStart={handleDragStart} 
+  //     className="yours-custom-class"
+  //   />
+  // ];
+  
+  // const Gallery = () => {
+  //   return (
+  //     <AliceCarousel mouseTracking items={items} />
+  //   );
+  // }
+
   return (
     <section>
       {statusCode < 400 ? 
 				<section className='movie-details-box'>
-          <ReactPlayer url={`https://www.youtube.com/watch?v=${movieTrailer.key}`} />
+          <AliceCarousel mouseTracking items={items} />
+          {/* <ReactPlayer url={`https://www.youtube.com/watch?v=${movieTrailer.key}`} /> */}
 					<img className='card-img backdrop' src={movie.backdrop_path} />
           <section className='up-first'>
             <img className='card-img poster' src={movie.poster_path} />

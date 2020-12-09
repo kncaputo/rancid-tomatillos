@@ -16,7 +16,7 @@ class App extends Component {
 			error: '',
 			statusCode: 0,
 			isMovieDetails: false,
-			movieTrailer: null
+			movieTrailers: null
 		}
 	}
 
@@ -43,16 +43,15 @@ class App extends Component {
 			}
 		})
 		.catch(error => this.setState({ error: error.message }))
-
 		this.getMovieTrailer(id);
 	}
 
 	getMovieTrailer(id) {
 		fetchTrailer(id)
-		.then(data => this.setState({ movieTrailer: data.videos }))
+		.then(data => this.setState({ movieTrailers: data.videos }))
 		.catch(error => console.log(error))
 	}
-
+// this.setState({ movieTrailers: data.videos }))
 	goHome = () => {
 		this.setState({ isMovieDetails: false, movie: null, statusCode: 0})
 	}
@@ -97,7 +96,7 @@ class App extends Component {
 								movie={this.state.movie}
 								statusCode={this.state.statusCode}  
 								error={this.state.error} 
-								movieTrailer={this.state.movieTrailer[0]}
+								movieTrailers={this.state.movieTrailers}
 								/>
 							)
 						}}
