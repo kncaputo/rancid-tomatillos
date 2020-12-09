@@ -70,7 +70,7 @@ class App extends Component {
 				{/* {this.state.movie === null ?  */}
 					<Route 
 						exact 
-						path='/movies' 
+						path='/' 
 						render={() => {
 							return (
 							<MovieContainer 
@@ -84,14 +84,19 @@ class App extends Component {
 					/> 
 					<Route 
 						exact
-						path='/movies/:id'
+						path='/:id'
 						render={() => {
+							if (!this.state.movie) {
+								return(
+									<h1>Whoops, it looks like something went wrong!</h1>
+								)
+							}
 							return (	
 								<MovieDetails 
 								movie={this.state.movie}
 								statusCode={this.state.statusCode}  
 								error={this.state.error} 
-								// movieTrailer={this.state.movieTrailer[0]}
+								movieTrailer={this.state.movieTrailer[0]}
 								/>
 							)
 						}}
