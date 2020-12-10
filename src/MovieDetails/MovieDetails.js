@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactPlayer from 'react-player';
+import ListItem from '../ListItem/ListItem';
 import './MovieDetails.css';
 
 const MovieDetails = ({ movie, statusCode, error, movieTrailer }) => {
@@ -44,25 +45,16 @@ const MovieDetails = ({ movie, statusCode, error, movieTrailer }) => {
               </section>
             </section>
           </section>
-
+    
 					<section className='overview-box'>
             <p className='overview-title'><b>Movie Info:</b></p>
             <p className='overview-text'>{movie.overview}</p>
           </section>
-					<section className='details-box'>
-            <p className='l-details'><b>Genre:</b></p>
-            <p className='r-details'>{ formatGenres(movie) }</p>
-          </section>
-          <section className='details-box'>
-            <p className='l-details'><b>Release Date: </b></p>
-            <p className='r-details'>{movie.release_date}</p>
-          </section>
+          <ListItem label='Genre:' body={ formatGenres(movie) } />
+          <ListItem label='Release Date:' body={movie.release_date} />
           { formatNum(movie.budget, 'Budget') }
 					{ formatNum(movie.revenue, 'Total Revenue') }
-          <section className='details-box'>
-            <p className='l-details'><b>Runtime:</b></p>
-            <p className='r-details'>{movie.runtime} minutes</p>
-          </section>
+          <ListItem label='Runtime:' body={movie.runtime} />
 				</section> :
 				<section>
 					<h1>Whoops, it looks like something went wrong!</h1>
