@@ -8,10 +8,7 @@ const MovieDetails = ({ movie, statusCode, error, movieTrailer }) => {
 	const formatNum = (num, type) => {
 		return (
       num > 0 && 
-      <section className='details-box'>
-        <p className='l-details'><b> {type} :</b></p>
-        <p className='r-details'>${new Intl.NumberFormat('en-US').format(num)}</p>
-      </section>
+      <ListItem label={type} body={`$${new Intl.NumberFormat('en-US').format(num)}`} />
 		)
   }
 
