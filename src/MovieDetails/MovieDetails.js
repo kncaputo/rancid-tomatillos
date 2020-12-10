@@ -37,8 +37,8 @@ const MovieDetails = ({ movie, statusCode, error, movieTrailer }) => {
             <section className='poster-aside'>
               <h1 className='movie-title'><b>{movie.title}</b></h1>
               <section className='ratings-box'>
-                <p className='l-details'><b>Average User Rating:</b></p>
-                <p className='r-details'>{movie.average_rating.toFixed(2)}</p>
+                <p className=''><b>Average User Rating:</b></p>
+                <p className=''>{movie.average_rating.toFixed(2)}</p>
               </section>
             </section>
           </section>

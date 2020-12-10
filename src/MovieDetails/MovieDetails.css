@@ -12,6 +12,7 @@
 	background: #d3d3d342;
 	width: 490px;
 	margin: 20px;
+	justify-content: space-around;
 }
 
 @media only screen and (max-width: 600px) {
@@ -25,7 +26,7 @@
 }
 
 .poster-aside {
-	margin-left: 15px;
+	width: 300px
 }
 
 .movie-title {
@@ -54,19 +55,5 @@
 section.movie-details-box {
 	display: flex;
 	flex-direction: column;
-	/* justify-content: center; */
 	align-items: center;
-}
-
-/* TODO: potential refactor; these are repeated in ListItem */
-.l-details {
-	text-align: right;
-	margin: 0px 10px;
-	width: 200px;
-}
-
-.r-details {
-	text-align: left;
-	margin: 0px 10px;
-	width: 200px;
 }
