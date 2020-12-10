@@ -2,22 +2,28 @@ import React from 'react';
 import { fireEvent, screen, render } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import MovieCard from './MovieCard';
-
+import { createMemoryHistory } from 'history';
+import { Router, MemoryRouter } from 'react-router-dom'
+ 
 describe('MovieCard', () => {
   let mockGetSingleMovie;
+  // let history = createMemoryHistory();
 
   beforeEach(() => {
     mockGetSingleMovie = jest.fn();
 
     render(
-      <MovieCard
-        title='Money Plane'
-        src='https://image.tmdb.org'
-        alt='Money Plane'
-        id={1}
-        key={1}
-        getSingleMovie={mockGetSingleMovie}
-      />
+      <MemoryRouter>
+        <MovieCard
+          title='Money Plane'
+          src='https://image.tmdb.org'
+          alt='Money Plane'
+          rating={6.999}
+          id={1}
+          key={1}
+          getSingleMovie={mockGetSingleMovie}
+        />
+      </MemoryRouter>
     )
   })
 

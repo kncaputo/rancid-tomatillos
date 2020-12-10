@@ -32,7 +32,7 @@ const MovieDetails = ({ movie, statusCode, error, movieTrailer }) => {
     <section>
       {statusCode < 400 ? 
 				<section className='movie-details-box'>
-          <ReactPlayer url={`https://www.youtube.com/watch?v=${movieTrailer.key}`} />
+          {/* <ReactPlayer url={`https://www.youtube.com/watch?v=${movieTrailer.key}`} /> */}
 					<img className='card-img backdrop' src={movie.backdrop_path} />
           <section className='up-first'>
             <img className='card-img poster' src={movie.poster_path} />
@@ -54,7 +54,7 @@ const MovieDetails = ({ movie, statusCode, error, movieTrailer }) => {
             <p className='r-details'>{ formatGenres(movie) }</p>
           </section>
           <section className='details-box'>
-            <p className='l-details'><b>Release Date:</b></p>
+            <p className='l-details'><b>Release Date: </b></p>
             <p className='r-details'>{movie.release_date}</p>
           </section>
           { formatNum(movie.budget, 'Budget') }
