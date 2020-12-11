@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { Route, NavLink, Link } from 'react-router-dom';
+import { Route, NavLink, Link, Redirect } from 'react-router-dom';
 import Header from '../Header/Header';
 import MovieContainer from '../MovieContainer/MovieContainer';
 import MovieDetails from '../MovieDetails/MovieDetails';
@@ -33,7 +33,6 @@ class App extends Component {
 	}
 	
 	getSingleMovie = (id) => {
-		this.setState({ isMovieDetails: true })
 		fetchSingleMovie(id)
     .then(data => {
 			if(typeof data === 'object') {
@@ -43,6 +42,7 @@ class App extends Component {
 			}
 		})
 		.catch(error => this.setState({ error: error.message }))
+		this.setState({ isMovieDetails: true })
 
 		this.getMovieTrailer(id);
 	}
@@ -89,13 +89,13 @@ class App extends Component {
 						render={({ match }) => {
 							if (!this.state.movie) {
 								return(
-									<h1>Whoops, it looks like something went wrong!</h1>
+								<Redirect to='/' component={MovieContainer}/>
 								)
 							}
 							if(+match.params.id === this.state.movie.id) {
 								return (	
 								<MovieDetails 
-								match={this.state.movie} 
+								// match={this.state.movie} 
 								movie={this.state.movie}
 								statusCode={this.state.statusCode}  
 								error={this.state.error} 
