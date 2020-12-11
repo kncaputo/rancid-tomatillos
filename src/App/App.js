@@ -35,11 +35,7 @@ class App extends Component {
 	getSingleMovie = (id) => {
 		fetchSingleMovie(id)
     .then(data => {
-			if(typeof data === 'object') {
 				this.setState({ movie: data.movie })
-			} else {
-				this.setState({ statusCode: data })
-			}
 		})
 		.catch(error => this.setState({ error: error.message }))
 		this.setState({ isMovieDetails: true })
@@ -89,8 +85,8 @@ class App extends Component {
 						render={({ match }) => {
 							if (!this.state.movie) {
 								return(
-									<h1>Whoops, it looks like something went wrong.</h1>
-								// <Redirect to='/' component={MovieContainer}/>
+									// <h1>Whoops, it looks like something went wrong.</h1>
+								<Redirect to='/' component={MovieContainer}/>
 								)
 							}
 							if(+match.params.id === this.state.movie.id) {
