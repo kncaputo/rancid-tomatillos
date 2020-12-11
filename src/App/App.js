@@ -96,11 +96,11 @@ class App extends Component {
 							if(+match.params.id === this.state.movie.id) {
 								return (	
 								<MovieDetails 
-								// match={this.state.movie} 
-								movie={this.state.movie}
-								statusCode={this.state.statusCode}  
-								error={this.state.error} 
-								// movieTrailer={this.state.movieTrailer[0]}
+									// match={this.state.movie} 
+									movie={this.state.movie}
+									statusCode={this.state.statusCode}  
+									error={this.state.error} 
+									// movieTrailer={this.state.movieTrailer[0]}
 								/>
 								)
 							}

@@ -69,3 +69,21 @@ section.movie-details-box {
 	background: lightgray;
 	flex-grow: 3;
 }
+
+.hero {
+
+}
+
+
+.banner-container {
+  display: flex;
+  position: relative;
+  height: 400px;
+  width: 100%;
+}
+
+.banner-img {
+  height: 400px;
+  width: 100%;
+  object-fit: cover;
+}
