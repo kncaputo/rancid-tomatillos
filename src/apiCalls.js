@@ -1,6 +1,11 @@
 export const fetchMovies = () => {
   return fetch('https://rancid-tomatillos.herokuapp.com/api/v2/movies')
-  .then(response => response.status > 300 ? response.status : response.json())
+  .then((response) => {
+    if(!response.ok) {
+      throw Error('Sorry! We\'ve encountered an error')
+    }
+    return response.json()
+  })
 }
 
 export const fetchSingleMovie = (id) => {
