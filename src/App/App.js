@@ -14,7 +14,6 @@ class App extends Component {
 			movies: [],
       movie: null,
 			error: '',
-			statusCode: 0,
 			isMovieDetails: false,
 			movieTrailer: null
 		}
@@ -23,11 +22,8 @@ class App extends Component {
   componentDidMount = () => {
 		fetchMovies()
 		.then(data => {
-			if(typeof data === 'object') {
-				this.setState({ movies: data.movies })
-			} else {
-				this.setState({ statusCode: data })
-			}
+			console.log(data)
+			this.setState({ movies: data.movies })
 		})
 		.catch(error => this.setState({ error: error.message }))
 	}
@@ -50,7 +46,7 @@ class App extends Component {
 	}
 
 	goHome = () => {
-		this.setState({ isMovieDetails: false, movie: null, statusCode: 0})
+		this.setState({ isMovieDetails: false, movie: null })
 	}
 
 	render() {
@@ -72,8 +68,7 @@ class App extends Component {
 							return (
 							<MovieContainer 
 								movies={this.state.movies} 
-								getSingleMovie={this.getSingleMovie} 
-								statusCode={this.state.statusCode}  
+								getSingleMovie={this.getSingleMovie}  
 								error={this.state.error} 
 							/>
 							)
@@ -93,8 +88,7 @@ class App extends Component {
 								return (	
 								<MovieDetails 
 									// match={this.state.movie} 
-									movie={this.state.movie}
-									statusCode={this.state.statusCode}  
+									movie={this.state.movie} 
 									error={this.state.error} 
 									// movieTrailer={this.state.movieTrailer[0]}
 								/>
