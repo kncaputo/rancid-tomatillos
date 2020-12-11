@@ -89,7 +89,8 @@ class App extends Component {
 						render={({ match }) => {
 							if (!this.state.movie) {
 								return(
-								<Redirect to='/' component={MovieContainer}/>
+									<h1>Whoops, it looks like something went wrong.</h1>
+								// <Redirect to='/' component={MovieContainer}/>
 								)
 							}
 							if(+match.params.id === this.state.movie.id) {
