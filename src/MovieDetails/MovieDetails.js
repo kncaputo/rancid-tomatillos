@@ -3,7 +3,7 @@ import ReactPlayer from 'react-player';
 import ListItem from '../ListItem/ListItem';
 import './MovieDetails.css';
 
-const MovieDetails = ({ movie, error, movieTrailer }) => {
+const MovieDetails = ({ movie, error, movieTrailers }) => {
 
 	const formatNum = (num, type) => {
 		return (
@@ -37,7 +37,7 @@ const MovieDetails = ({ movie, error, movieTrailer }) => {
 
           <section className='center-panel'>
             <section className='movie-details-box'>
-              {/* <ReactPlayer url={`https://www.youtube.com/watch?v=${movieTrailer.key}`} /> */}
+              {/* <ReactPlayer url={`https://www.youtube.com/watch?v=${movieTrailers.key}`} /> */}
               {/* <img className='card-img backdrop' src={movie.backdrop_path} /> */}
               <section className='up-first'>
                 <img className='card-img poster' src={movie.poster_path} />

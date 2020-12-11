@@ -15,7 +15,7 @@ class App extends Component {
       movie: null,
 			error: '',
 			isMovieDetails: false,
-			movieTrailer: null
+			movieTrailers: []
 		}
 	}
 
@@ -31,22 +31,21 @@ class App extends Component {
 	getSingleMovie = (id) => {
 		fetchSingleMovie(id)
     .then(data => {
-				this.setState({ movie: data.movie })
+			this.setState({ movie: data.movie, isMovieDetails: true })
 		})
 		.catch(error => this.setState({ error: error.message }))
-		this.setState({ isMovieDetails: true })
 
 		this.getMovieTrailer(id);
 	}
 
 	getMovieTrailer(id) {
 		fetchTrailer(id)
-		.then(data => this.setState({ movieTrailer: data.videos }))
+		.then(data => this.setState({ movieTrailers: data.videos }))
 		.catch(error => console.log(error))
 	}
 
 	goHome = () => {
-		this.setState({ isMovieDetails: false, movie: null })
+		this.setState({ isMovieDetails: false, movie: null, movieTrailers: [] })
 	}
 
 	render() {
@@ -90,7 +89,7 @@ class App extends Component {
 									// match={this.state.movie} 
 									movie={this.state.movie} 
 									error={this.state.error} 
-									// movieTrailer={this.state.movieTrailer[0]}
+									// movieTrailers={this.state.movieTrailers[0]}
 								/>
 								)
 							}
