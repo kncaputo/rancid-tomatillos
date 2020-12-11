@@ -27,11 +27,10 @@ const MovieDetails = ({ movie, statusCode, error, movieTrailer }) => {
   }
 
   return (
-    <section>
-      {statusCode < 400 ? 
-				<section className='movie-details-box'>
+      <section>
+        <section className='movie-details-box'>
           {/* <ReactPlayer url={`https://www.youtube.com/watch?v=${movieTrailer.key}`} /> */}
-					<img className='card-img backdrop' src={movie.backdrop_path} />
+          <img className='card-img backdrop' src={movie.backdrop_path} />
           <section className='up-first'>
             <img className='card-img poster' src={movie.poster_path} />
             <section className='poster-aside'>
@@ -43,22 +42,17 @@ const MovieDetails = ({ movie, statusCode, error, movieTrailer }) => {
             </section>
           </section>
     
-					<section className='overview-box'>
+          <section className='overview-box'>
             <p className='overview-title'><b>Movie Info:</b></p>
             <p className='overview-text'>{movie.overview}</p>
           </section>
           <ListItem label='Genre:' body={ formatGenres(movie) } />
           <ListItem label='Release Date:' body={movie.release_date} />
           { formatNum(movie.budget, 'Budget') }
-					{ formatNum(movie.revenue, 'Total Revenue') }
+          { formatNum(movie.revenue, 'Total Revenue') }
           <ListItem label='Runtime:' body={movie.runtime} />
-				</section> :
-				<section>
-					<h1>Whoops, it looks like something went wrong!</h1>
-					<p>{statusCode} {error}</p>
-				</section>
-			}
-    </section>
+        </section> 
+      </section>
   )
 }
 

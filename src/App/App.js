@@ -34,7 +34,7 @@ class App extends Component {
 	
 	getSingleMovie = (id) => {
 		this.setState({ isMovieDetails: true })
-    fetchSingleMovie(id)
+		fetchSingleMovie(id)
     .then(data => {
 			if(typeof data === 'object') {
 				this.setState({ movie: data.movie })
@@ -64,14 +64,14 @@ class App extends Component {
 					<h1>Rancid Tomatillos</h1>
 				
 					<nav>
-						<NavLink to='/movies'>
+						<NavLink to='/'>
 						{this.state.isMovieDetails && <button onClick={() => {this.goHome()}}>Back</button>}
 						</NavLink>
 					</nav>
 				</header>
 					<Route 
 						exact 
-						path='/movies' 
+						path='/' 
 						render={() => {
 							return (
 							<MovieContainer 
@@ -85,24 +85,26 @@ class App extends Component {
 					/> 
 					<Route 
 						exact
-						path='/movies/:id'
-						render={() => {
+						path='/:id'
+						render={({ match }) => {
 							if (!this.state.movie) {
 								return(
 									<h1>Whoops, it looks like something went wrong!</h1>
 								)
 							}
-							return (	
+							if(+match.params.id === this.state.movie.id) {
+								return (	
 								<MovieDetails 
+								match={this.state.movie} 
 								movie={this.state.movie}
 								statusCode={this.state.statusCode}  
 								error={this.state.error} 
-								movieTrailer={this.state.movieTrailer[0]}
+								// movieTrailer={this.state.movieTrailer[0]}
 								/>
-							)
+								)
+							}
 						}}
 					/>
-				
 			</main>
 		);
 	}
