@@ -2,9 +2,9 @@ import React from 'react';
 import { Link } from 'react-router-dom'
 import './MovieCard.css';
 
-const MovieCard = ({title, src, alt, rating, id, getSingleMovie}) => {
+const MovieCard = ({ title, src, alt, rating, id, getSingleMovie }) => {
   return (
-    <Link to={`/movies/${id}`}>
+    <Link to={`/${id}`}>
       <section id={id} className='card' onClick={() => getSingleMovie(id)}>
         <img className='card-img' src={src} alt={alt} />
         <p>{title}</p>

@@ -1,12 +1,13 @@
 import React from 'react';
 import { screen, render } from '@testing-library/react';
 import '@testing-library/jest-dom';
+import { MemoryRouter } from 'react-router';
 import MovieDetails from './MovieDetails';
-
 
 describe('MovieDetails', () => {
 	it('should render a single movie if status code is below 400', () => {
-		
+		// const history = createMemoryHistory();
+
 		const singleMovie = {
 			'movie': {
 				'id':718444,
@@ -25,16 +26,18 @@ describe('MovieDetails', () => {
 		};
 
 		render( 
-			<MovieDetails 
-				movie={singleMovie.movie}
-				statusCode={300}  
-				error=''  
-			/>
+			<MemoryRouter>
+				<MovieDetails 
+					movie={singleMovie.movie}
+					statusCode={300}  
+					error=''  
+				/>
+			</MemoryRouter>
 		)
 
 		const title = screen.getByText('Rogue');
-		const releaseDate = screen.getByText('Release Date: 2020-08-20');
-		const genres = screen.getByText('Genre: Action');
+		const releaseDate = screen.getByText('2020-08-20');
+		const genres = screen.getByText('Action');
 
 		expect(title).toBeInTheDocument();
 		expect(releaseDate).toBeInTheDocument();
