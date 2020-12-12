@@ -22,7 +22,6 @@ class App extends Component {
   componentDidMount = () => {
 		fetchMovies()
 		.then(data => {
-			console.log(data)
 			this.setState({ movies: data.movies })
 		})
 		.catch(error => this.setState({ error: error.message }))
