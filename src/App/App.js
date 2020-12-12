@@ -22,7 +22,7 @@ class App extends Component {
   componentDidMount = () => {
 		fetchMovies()
 		.then(data => {
-			this.setState({ movies: data.movies })
+			this.setState({ movies: data.movies, isMovieDetails: false })
 		})
 		.then(() => {
 			if (window.location.pathname !== '/') {
@@ -33,7 +33,7 @@ class App extends Component {
 						error={this.state.error}
 						// movieTrailers={this.state.movieTrailers[0]}
 					/>
-				)
+				);
 			}	
 		})
 		.catch(error => this.setState({ error: error.message }))
