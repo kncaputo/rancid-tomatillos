@@ -69,7 +69,7 @@ class App extends Component {
 								getSingleMovie={this.getSingleMovie}  
 								error={this.state.error} 
 							/>
-							)
+							);
 						}}
 					/> 
 					<Route 
@@ -80,7 +80,7 @@ class App extends Component {
 								return(
 									<h1>Whoops, it looks like something went wrong.</h1>
 								// <Redirect to='/' component={MovieContainer}/>
-								)
+								);
 							}
 							if(+match.params.id === this.state.movie.id) {
 								return (	
@@ -89,7 +89,7 @@ class App extends Component {
 									error={this.state.error} 
 									// movieTrailers={this.state.movieTrailers[0]}
 								/>
-								)
+								);
 							}
 						}}
 					/>

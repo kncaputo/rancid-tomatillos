@@ -14,7 +14,7 @@ const MovieContainer = ({ movies, getSingleMovie, error }) => {
         key={movie.id}
         getSingleMovie={getSingleMovie}
       />
-    )
+    );
   })
 
   return (
@@ -27,7 +27,7 @@ const MovieContainer = ({ movies, getSingleMovie, error }) => {
         <p> {error}</p>
       </section>
     </section>
-  )
+  );
 }
 
 export default MovieContainer;

@@ -11,7 +11,7 @@ const MovieCard = ({ title, src, alt, rating, id, getSingleMovie }) => {
         <p>Average Rating: {rating.toFixed(2)}</p>
       </section>
     </Link>
-  )
+  );
 }
 
 export default MovieCard;

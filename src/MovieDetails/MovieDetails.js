@@ -9,7 +9,7 @@ const MovieDetails = ({ movie, error, movieTrailers }) => {
 		return (
       num > 0 && 
       <ListItem label={type} body={`$${new Intl.NumberFormat('en-US').format(num)}`} />
-		)
+		);
   }
 
   const formatGenres = (movie) => {
@@ -27,13 +27,13 @@ const MovieDetails = ({ movie, error, movieTrailers }) => {
   }
 
   return (
-      <section>
-        <section className='banner-container'>
-          <img className='card-img banner-img' src={movie.backdrop_path} alt={`${movie.title} banner`} />
+    <section>
+      <section className='banner-container'>
+        <img className='card-img banner-img' src={movie.backdrop_path} alt={`${movie.title} banner`} />
+      </section>
+      <section className='container'>
+        <section className='side-panel'>
         </section>
-        <section className='container'>
-          <section className='side-panel'>
-          </section>
 
           <section className='center-panel'>
             <section className='movie-details-box'>
@@ -62,12 +62,11 @@ const MovieDetails = ({ movie, error, movieTrailers }) => {
             </section> 
           </section>
 
-          <section className='side-panel'>
-          </section>
+        <section className='side-panel'>
         </section>
-
       </section>
-  )
+    </section>
+  );
 }
 
 export default MovieDetails;
