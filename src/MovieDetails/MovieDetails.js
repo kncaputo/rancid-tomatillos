@@ -29,7 +29,7 @@ const MovieDetails = ({ movie, error, movieTrailers }) => {
   return (
       <section>
         <section className='banner-container'>
-          <img className='card-img banner-img' src={movie.backdrop_path} />
+          <img className='card-img banner-img' src={movie.backdrop_path} alt={`${movie.title} banner`} />
         </section>
         <section className='container'>
           <section className='side-panel'>
@@ -40,7 +40,7 @@ const MovieDetails = ({ movie, error, movieTrailers }) => {
               {/* <ReactPlayer url={`https://www.youtube.com/watch?v=${movieTrailers.key}`} /> */}
               {/* <img className='card-img backdrop' src={movie.backdrop_path} /> */}
               <section className='up-first'>
-                <img className='card-img poster' src={movie.poster_path} />
+                <img className='card-img poster' src={movie.poster_path} alt={`${movie.title} poster`} />
                 <section className='poster-aside'>
                   <h1 className='movie-title'><b>{movie.title}</b></h1>
                   <section className='ratings-box'>

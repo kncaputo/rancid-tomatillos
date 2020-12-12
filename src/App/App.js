@@ -5,7 +5,7 @@ import MovieContainer from '../MovieContainer/MovieContainer';
 import MovieDetails from '../MovieDetails/MovieDetails';
 import ReactPlayer from 'react-player';
 import './App.css';
-import { fetchSingleMovie, fetchMovies, fetchTrailer } from '../apiCalls';
+import { fetchSingleMovie, fetchMovies, fetchTrailers } from '../apiCalls';
 
 class App extends Component {
 	constructor() {
@@ -34,11 +34,11 @@ class App extends Component {
 		})
 		.catch(error => this.setState({ error: error.message }))
 
-		this.getMovieTrailer(id);
+		this.getMovieTrailers(id);
 	}
 
-	getMovieTrailer(id) {
-		fetchTrailer(id)
+	getMovieTrailers(id) {
+		fetchTrailers(id)
 		.then(data => this.setState({ movieTrailers: data.videos }))
 		.catch(error => console.log(error))
 	}
@@ -78,14 +78,13 @@ class App extends Component {
 						render={({ match }) => {
 							if (!this.state.movie) {
 								return(
-									// <h1>Whoops, it looks like something went wrong.</h1>
-								<Redirect to='/' component={MovieContainer}/>
+									<h1>Whoops, it looks like something went wrong.</h1>
+								// <Redirect to='/' component={MovieContainer}/>
 								)
 							}
 							if(+match.params.id === this.state.movie.id) {
 								return (	
-								<MovieDetails 
-									// match={this.state.movie} 
+								<MovieDetails  
 									movie={this.state.movie} 
 									error={this.state.error} 
 									// movieTrailers={this.state.movieTrailers[0]}
