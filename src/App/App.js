@@ -5,7 +5,7 @@ import MovieContainer from '../MovieContainer/MovieContainer';
 import MovieDetails from '../MovieDetails/MovieDetails';
 import ReactPlayer from 'react-player';
 import './App.css';
-import { fetchSingleMovie, fetchMovies, fetchTrailer } from '../apiCalls';
+import { fetchSingleMovie, fetchMovies, fetchTrailers } from '../apiCalls';
 
 class App extends Component {
 	constructor() {
@@ -14,20 +14,15 @@ class App extends Component {
 			movies: [],
       movie: null,
 			error: '',
-			statusCode: 0,
 			isMovieDetails: false,
-			movieTrailer: null
+			movieTrailers: []
 		}
 	}
 
   componentDidMount = () => {
 		fetchMovies()
 		.then(data => {
-			if(typeof data === 'object') {
-				this.setState({ movies: data.movies })
-			} else {
-				this.setState({ statusCode: data })
-			}
+			this.setState({ movies: data.movies })
 		})
 		.catch(error => this.setState({ error: error.message }))
 	}
@@ -35,26 +30,21 @@ class App extends Component {
 	getSingleMovie = (id) => {
 		fetchSingleMovie(id)
     .then(data => {
-			if(typeof data === 'object') {
-				this.setState({ movie: data.movie })
-			} else {
-				this.setState({ statusCode: data })
-			}
+			this.setState({ movie: data.movie, isMovieDetails: true })
 		})
 		.catch(error => this.setState({ error: error.message }))
-		this.setState({ isMovieDetails: true })
 
-		this.getMovieTrailer(id);
+		this.getMovieTrailers(id);
 	}
 
-	getMovieTrailer(id) {
-		fetchTrailer(id)
-		.then(data => this.setState({ movieTrailer: data.videos }))
+	getMovieTrailers(id) {
+		fetchTrailers(id)
+		.then(data => this.setState({ movieTrailers: data.videos }))
 		.catch(error => console.log(error))
 	}
 
 	goHome = () => {
-		this.setState({ isMovieDetails: false, movie: null, statusCode: 0})
+		this.setState({ isMovieDetails: false, movie: null, movieTrailers: [] })
 	}
 
 	render() {
@@ -76,11 +66,10 @@ class App extends Component {
 							return (
 							<MovieContainer 
 								movies={this.state.movies} 
-								getSingleMovie={this.getSingleMovie} 
-								statusCode={this.state.statusCode}  
+								getSingleMovie={this.getSingleMovie}  
 								error={this.state.error} 
 							/>
-							)
+							);
 						}}
 					/> 
 					<Route 
@@ -91,18 +80,16 @@ class App extends Component {
 								return(
 									<h1>Whoops, it looks like something went wrong.</h1>
 								// <Redirect to='/' component={MovieContainer}/>
-								)
+								);
 							}
 							if(+match.params.id === this.state.movie.id) {
 								return (	
-								<MovieDetails 
-									// match={this.state.movie} 
-									movie={this.state.movie}
-									statusCode={this.state.statusCode}  
+								<MovieDetails  
+									movie={this.state.movie} 
 									error={this.state.error} 
-									// movieTrailer={this.state.movieTrailer[0]}
+									// movieTrailers={this.state.movieTrailers[0]}
 								/>
-								)
+								);
 							}
 						}}
 					/>

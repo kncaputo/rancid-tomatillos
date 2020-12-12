@@ -22,8 +22,8 @@ describe('MovieCard', () => {
           getSingleMovie={mockGetSingleMovie}
         />
       </MemoryRouter>
-    )
-  })
+    );
+  });
 
   it('should render correctly', () => {
     const title = screen.getByText('Money Plane');
@@ -31,13 +31,13 @@ describe('MovieCard', () => {
 
     expect(title).toBeInTheDocument();
     expect(altText).toBeInTheDocument();
-  })
+  });
 
   it('should call getSingleMovie with the correct id', () => {
     const movieCard = screen.getByText('Money Plane');
     fireEvent.click(movieCard);
 
     expect(mockGetSingleMovie).toHaveBeenCalledWith(1);
-  })
-})
+  });
+});
 

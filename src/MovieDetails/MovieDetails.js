@@ -3,13 +3,13 @@ import ReactPlayer from 'react-player';
 import ListItem from '../ListItem/ListItem';
 import './MovieDetails.css';
 
-const MovieDetails = ({ movie, statusCode, error, movieTrailer }) => {
+const MovieDetails = ({ movie, error, movieTrailers }) => {
 
 	const formatNum = (num, type) => {
 		return (
       num > 0 && 
       <ListItem label={type} body={`$${new Intl.NumberFormat('en-US').format(num)}`} />
-		)
+		);
   }
 
   const formatGenres = (movie) => {
@@ -27,20 +27,20 @@ const MovieDetails = ({ movie, statusCode, error, movieTrailer }) => {
   }
 
   return (
-      <section>
-        <section className='banner-container'>
-          <img className='card-img banner-img' src={movie.backdrop_path} />
+    <section>
+      <section className='banner-container'>
+        <img className='card-img banner-img' src={movie.backdrop_path} alt={`${movie.title} banner`} />
+      </section>
+      <section className='container'>
+        <section className='side-panel'>
         </section>
-        <section className='container'>
-          <section className='side-panel'>
-          </section>
 
           <section className='center-panel'>
             <section className='movie-details-box'>
-              {/* <ReactPlayer url={`https://www.youtube.com/watch?v=${movieTrailer.key}`} /> */}
+              {/* <ReactPlayer url={`https://www.youtube.com/watch?v=${movieTrailers.key}`} /> */}
               {/* <img className='card-img backdrop' src={movie.backdrop_path} /> */}
               <section className='up-first'>
-                <img className='card-img poster' src={movie.poster_path} />
+                <img className='card-img poster' src={movie.poster_path} alt={`${movie.title} poster`} />
                 <section className='poster-aside'>
                   <h1 className='movie-title'><b>{movie.title}</b></h1>
                   <section className='ratings-box'>
@@ -62,12 +62,11 @@ const MovieDetails = ({ movie, statusCode, error, movieTrailer }) => {
             </section> 
           </section>
 
-          <section className='side-panel'>
-          </section>
+        <section className='side-panel'>
         </section>
-
       </section>
-  )
+    </section>
+  );
 }
 
 export default MovieDetails;

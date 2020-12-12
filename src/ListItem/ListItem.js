@@ -7,7 +7,7 @@ const ListItem =  ({ label, body })  => {
       <p className='l-details'><b>{label}</b></p>
       <p className='r-details'>{body}</p>
     </section>
-  )
+  );
 }
 
 export default ListItem;
