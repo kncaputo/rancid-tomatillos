@@ -18,11 +18,23 @@ class App extends Component {
 			movieTrailers: []
 		}
 	}
-
+	
   componentDidMount = () => {
 		fetchMovies()
 		.then(data => {
 			this.setState({ movies: data.movies })
+		})
+		.then(() => {
+			if (window.location.pathname !== '/') {
+				this.getSingleMovie(window.location.pathname.slice(1))
+				return(
+					<MovieDetails  
+						movie={this.state.movie} 
+						error={this.state.error}
+						// movieTrailers={this.state.movieTrailers[0]}
+					/>
+				)
+			}	
 		})
 		.catch(error => this.setState({ error: error.message }))
 	}
@@ -37,7 +49,7 @@ class App extends Component {
 		this.getMovieTrailers(id);
 	}
 
-	getMovieTrailers(id) {
+	getMovieTrailers = (id) => {
 		fetchTrailers(id)
 		.then(data => this.setState({ movieTrailers: data.videos }))
 		.catch(error => console.log(error))
@@ -79,14 +91,14 @@ class App extends Component {
 							if (!this.state.movie) {
 								return(
 									<h1>Whoops, it looks like something went wrong.</h1>
-								// <Redirect to='/' component={MovieContainer}/>
+									// <Redirect to='/' component={MovieContainer}/>
 								);
 							}
 							if(+match.params.id === this.state.movie.id) {
 								return (	
 								<MovieDetails  
 									movie={this.state.movie} 
-									error={this.state.error} 
+									error={this.state.error}
 									// movieTrailers={this.state.movieTrailers[0]}
 								/>
 								);
