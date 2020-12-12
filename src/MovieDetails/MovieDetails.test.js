@@ -20,9 +20,11 @@ describe('MovieDetails', () => {
 		const title = screen.getByText('Rogue');
 		const releaseDate = screen.getByText('2020-08-20');
 		const genres = screen.getByText('Action');
+		const rating = screen.getByText('6.43')
 
 		expect(title).toBeInTheDocument();
 		expect(releaseDate).toBeInTheDocument();
 		expect(genres).toBeInTheDocument();
+		expect(rating).toBeInTheDocument();
 	});
 });

@@ -20,7 +20,7 @@ export const mockMovieData = [
       "poster_path": "https://image.tmdb.org/t/p/original//uOw5JD8IlD546feZ6oxbIjvN66P.jpg",
       "backdrop_path": "https://image.tmdb.org/t/p/original//x4UkhIQuHIJyeeOTdcbZ3t3gBSa.jpg",
       "title": "Rogue",
-      "average_rating": 5.428571428571429,
+      "average_rating": 6.428571428571429,
       "release_date": "2020-08-20"
     }
   ];

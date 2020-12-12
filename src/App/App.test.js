@@ -41,4 +41,24 @@ describe('App', () => {
 	
 		expect(runTime).toBeInTheDocument();
 	});
+
+	it('should return home when back button is clicked', async () => {
+		fetchSingleMovie.mockResolvedValueOnce(mockSingleMovieData);
+		fetchTrailers.mockResolvedValueOnce(mockMovieTrailers);
+	
+		const movieCard = screen.getByText('Rogue');
+		
+		fireEvent.click(movieCard);
+		
+		const backButton = await waitFor(() => screen.getByText('Back'));
+
+		fireEvent.click(backButton);
+
+		const title1 = screen.getByText('Money Plane');
+		const title2 = screen.getByText('Mulan');
+		
+		expect(title1).toBeInTheDocument();
+		expect(title2).toBeInTheDocument();
+		expect(screen.queryByText('Back')).not.toBeInTheDocument();
+	});
 });
