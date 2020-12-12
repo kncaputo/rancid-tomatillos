@@ -22,7 +22,7 @@ class App extends Component {
   componentDidMount = () => {
 		fetchMovies()
 		.then(data => {
-			this.setState({ movies: data.movies, isMovieDetails: false })
+			this.setState({ movies: data.movies })
 		})
 		.then(() => {
 			if (window.location.pathname !== '/') {
