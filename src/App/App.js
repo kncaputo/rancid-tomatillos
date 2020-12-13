@@ -3,6 +3,7 @@ import { Route, NavLink, Link, Redirect } from 'react-router-dom';
 import Header from '../Header/Header';
 import MovieContainer from '../MovieContainer/MovieContainer';
 import MovieDetails from '../MovieDetails/MovieDetails';
+import ErrorContainer from '../ErrorContainer/ErrorContainer';
 import ReactPlayer from 'react-player';
 import './App.css';
 import { fetchSingleMovie, fetchMovies, fetchTrailers } from '../apiCalls';

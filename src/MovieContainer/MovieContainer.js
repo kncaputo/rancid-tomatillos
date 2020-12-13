@@ -1,5 +1,6 @@
 import React from 'react';
 import MovieCard from '../MovieCard/MovieCard';
+import ErrorContainer from '../ErrorContainer/ErrorContainer';
 import './MovieContainer.css';
 
 const MovieContainer = ({ movies, getSingleMovie, error }) => {
