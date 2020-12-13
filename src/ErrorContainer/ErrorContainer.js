@@ -5,10 +5,11 @@ class ErrorContainer extends Component {
   constructor({ error }) {
     super({ error });
     this.state = {
-      // error:
+      error: error
     }
   }
 
+  
 }
 
-// export default ErrorContainer;
+export default ErrorContainer;
