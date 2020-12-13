@@ -1,12 +1,14 @@
-import React from 'react';
-import 'ErrorContainer.css';
+import React, { Component } from 'react';
+import './ErrorContainer.css';
 
-const ErrorContainer = ({ error }) => {
-  return (
-    <section>
-      <h2></h2>
-    </section>
-  )
+class ErrorContainer extends Component {
+  constructor({ error }) {
+    super({ error });
+    this.state = {
+      // error:
+    }
+  }
+
 }
 
-export default ErrorContainer;
+// export default ErrorContainer;

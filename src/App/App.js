@@ -88,14 +88,14 @@ class App extends Component {
 					<Route 
 						exact
 						path='/:id'
-						render={({ match }) => {
+						render={() => {
 							if (!this.state.movie) {
 								return(
 									<h1>Whoops, it looks like something went wrong.</h1>
 									// <Redirect to='/' component={MovieContainer}/>
 								);
 							}
-							if(+match.params.id === this.state.movie.id) {
+							if(this.state.movie) {
 								return (	
 								<MovieDetails  
 									movie={this.state.movie} 
