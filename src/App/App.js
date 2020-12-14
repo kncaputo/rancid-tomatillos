@@ -90,36 +90,21 @@ class App extends Component {
 						exact
 						path='/:id'
 						render={() => {
-							// if (!this.state.movie) {
-							// 	return(
-							// 		<h1>Whoops, it looks like something went wrong.</h1>
-							// 		// <Redirect to='/' component={MovieContainer}/>
-							// 	);
-							// }
+							if (!this.state.movie) {
+								return(
+									<h1>Whoops, it looks like something went wrong.</h1>
+									// <Redirect to='/' component={MovieContainer}/>
+								);
+							}
 							if(this.state.movie) {
 								return (	
-									<ErrorBoundary	
-										// fallbackRender={({ error, resetErrorBoundary }) => (
-										// 	<section role='alert'>
-										// 		<p>Uh oh</p>
-										// 		<p>{error.message}</p>
-										// 		<button
-										// 			onClick={() => {
-										// 				// resetComponentState();
-										// 				// resetErrorBoundary();
-										// 			}}
-										// 		>Try again
-										// 		</button>
-										// 	</section>
-										// )}
-									>
+									<ErrorBoundary>
 										<MovieDetails  
 											movie={this.state.movie} 
-										
 											// movieTrailers={this.state.movieTrailers[0]}
 										/>
 									</ErrorBoundary>		
-										);
+								);
 							}
 						}}
 					/>
