@@ -84,11 +84,13 @@ class App extends Component {
 						path='/' 
 						render={() => {
 							return (
-								<MovieContainer 
-									movies={this.state.movies} 
-									getSingleMovie={this.getSingleMovie}  
-									error={this.state.error} 
-								/>
+								<ErrorBoundary>
+									<MovieContainer 
+										movies={this.state.movies} 
+										getSingleMovie={this.getSingleMovie}  
+										error={this.state.error} 
+									/>
+								</ErrorBoundary>
 							);
 						}}
 					/> 
