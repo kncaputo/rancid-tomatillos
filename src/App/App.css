@@ -2,13 +2,22 @@
   text-align: center;
 }
 
+button:hover {
+  cursor: pointer;
+  color: darkgreen;
+}
+
 header {
   display: flex;
   justify-content: space-between;
 }
 
 h1 {
- margin-left: 20px; 
+  margin: 10px 40px;
+  font-family: 'Knewave', cursive;
+  font-size: 60px;
+  letter-spacing: 3px;
+  text-shadow: 2px 3px #a5a5a5;
 }
 
 nav {
@@ -17,17 +26,17 @@ nav {
   align-items: center;
 }
 
-button {
+button.all-movies {
   background: none;
   outline: none;
   border: none;
   font-size: 20px;
 }
 
-button:hover {
+/* button.all-movies:hover {
   cursor: pointer;
   color: darkgreen;
-}
+} */
 
 @media only screen and (max-width: 600px) {
   h1 {
@@ -41,38 +50,12 @@ button:hover {
   
 }
 
+button.back {
+  padding: 10px;
+  border: 2px solid rgb(63, 63, 63);
+  border-radius: 5px;
+}
 /* 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
+button.back {
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
 } */

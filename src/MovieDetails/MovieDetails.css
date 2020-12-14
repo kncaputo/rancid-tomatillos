@@ -1,3 +1,7 @@
+* {
+	font-family: 'PT Sans Narrow', sans-serif;
+}
+
 .backdrop {
 	margin: 20px;
 }
@@ -24,6 +28,10 @@
 	.poster {
 		display: none;
 	}
+
+	.poster-aside {
+		padding-left: 0;
+	}
 }
 
 .poster-aside {
@@ -31,14 +39,24 @@
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
+	padding-left: 10px;
 }
 
 .movie-title {
-	font-size: 25px;
+	font-size: 40px;
 	text-align: center;
 	border-bottom: 1px solid;
 	padding-bottom: 5px;
 	margin: 10px;
+}
+
+.user-rating-title {
+	font-size: 20px;
+}
+
+.rating {
+	font-size: 25px;
+	margin-bottom: 0px;
 }
 
 .overview-box {
@@ -52,6 +70,7 @@
 
 .overview-title {
 	margin: 10px 5px;
+	font-size: 20px;
 }
 
 .overview-text {

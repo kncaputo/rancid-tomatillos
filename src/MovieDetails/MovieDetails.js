@@ -55,10 +55,10 @@ const MovieDetails = ({ movie, movieTrailers }) => {
               <section className='up-first'>
                 <img className='card-img poster' src={movie.poster_path} alt={`${movie.title} poster`} />
                 <section className='poster-aside'>
-                  <h1 className='movie-title'><b>{movie.title}</b></h1>
+                  <p className='movie-title'><b>{movie.title}</b></p>
                   <section className='ratings-box'>
-                    <p className=''><b>Average User Rating:</b></p>
-                    <p className=''>{movie.average_rating.toFixed(2)}</p>
+                    <p className='user-rating-title'><b>Average User Rating:</b></p>
+                    <p className='rating'>{movie.average_rating.toFixed(2)} /10</p>
                     <p className='rating-emoji'>{determineApproval(movie.average_rating)}</p>
                   </section>
                 </section>

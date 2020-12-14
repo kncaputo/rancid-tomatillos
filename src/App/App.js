@@ -70,7 +70,7 @@ class App extends Component {
 					<nav>
 						<NavLink to='/'>
 							{this.state.isMovieDetails && 
-								<button 
+								<button className='all-movies'
 									onClick={() => {this.goHome()}}
 								>
 									All Movies
@@ -100,7 +100,12 @@ class App extends Component {
 						render={() => {
 							if (!this.state.movie) {
 								return(
-									<h1>Whoops, it looks like something went wrong. Try refreshing the page or return to all movies.</h1>
+									<section>
+										<h1>Whoops, it looks like something went wrong. Try refreshing the page or return to all movies.</h1>
+										<Link to='/'>
+											<button className='back'>Back to Movies</button>
+										</Link>
+									</section>
 									// <Redirect to='/' component={MovieContainer}/>
 								);
 							}
