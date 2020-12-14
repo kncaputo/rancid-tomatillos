@@ -5,10 +5,6 @@ import './MovieDetails.css';
 
 const MovieDetails = ({ movie, movieTrailers }) => {
 
-  if (movie.title === 'Mulan') {
-    throw Error('You Clicked Mulan')
-  }
-  
 	const formatNum = (num, type) => {
 		return (
       num > 0 && 
