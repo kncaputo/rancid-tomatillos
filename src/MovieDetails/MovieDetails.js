@@ -36,6 +36,7 @@ const MovieDetails = ({ movie, movieTrailers }) => {
         </section>
 
           <section className='center-panel'>
+
             <section className='movie-details-box'>
               {/* <ReactPlayer url={`https://www.youtube.com/watch?v=${movieTrailers.key}`} /> */}
               {/* <img className='card-img backdrop' src={movie.backdrop_path} /> */}

@@ -69,7 +69,12 @@ class App extends Component {
 				
 					<nav>
 						<NavLink to='/'>
-						{this.state.isMovieDetails && <button onClick={() => {this.goHome()}}>Back</button>}
+							{this.state.isMovieDetails && 
+								<button 
+									onClick={() => {this.goHome()}}
+								>
+									All Movies
+								</button>}
 						</NavLink>
 					</nav>
 				</header>
