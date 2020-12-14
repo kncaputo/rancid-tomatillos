@@ -26,6 +26,18 @@ const MovieDetails = ({ movie, movieTrailers }) => {
     }
   }
 
+  const determineApproval = (rating) => {
+    if (rating < 4) {
+      return '🤢'
+    } else if (rating < 6) {
+      return '👌'
+    } else if (rating < 9) {
+      return '👍'
+    } else {
+      return '🤩'
+    }
+  }
+
   return (
     <section>
       <section className='banner-container'>
@@ -47,6 +59,7 @@ const MovieDetails = ({ movie, movieTrailers }) => {
                   <section className='ratings-box'>
                     <p className=''><b>Average User Rating:</b></p>
                     <p className=''>{movie.average_rating.toFixed(2)}</p>
+                    <p className='rating-emoji'>{determineApproval(movie.average_rating)}</p>
                   </section>
                 </section>
               </section>
