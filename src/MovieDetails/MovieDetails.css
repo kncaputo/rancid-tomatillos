@@ -62,18 +62,14 @@ section.movie-details-box {
 	display: flex;
 }
 
-.main-panel {
-	flex-grow: 1;
+.center-panel {
+	flex-grow: 2;
 }
+
 .side-panel {
 	background: lightgray;
-	flex-grow: 3;
+	flex-grow: 1;
 }
-
-.hero {
-
-}
-
 
 .banner-container {
   display: flex;
