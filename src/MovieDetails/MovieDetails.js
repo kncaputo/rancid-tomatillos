@@ -11,7 +11,9 @@ const MovieDetails = ({ movie, movieTrailers }) => {
       <ListItem label={type} body={`$${new Intl.NumberFormat('en-US').format(num)}`} />
 		);
   }
-   
+  if(movie.title === 'Mulan') {
+    throw Error('Dis Mulan')
+  }
   const formatGenres = (movie) => {
     if (!movie.genres) {
       return "Unavailable"
