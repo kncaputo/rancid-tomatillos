@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { Route, NavLink, Link, Redirect, Switch } from 'react-router-dom';
+import { Route, NavLink, Link, Redirect, Switch, withRouter } from 'react-router-dom';
 import Header from '../Header/Header';
 import MovieContainer from '../MovieContainer/MovieContainer';
 import MovieDetails from '../MovieDetails/MovieDetails';
@@ -106,7 +106,6 @@ class App extends Component {
 											<button className='back'>Back to Movies</button>
 										</Link>
 									</section>
-									// <Redirect to='/' component={MovieContainer}/>
 								);
 							}
 							return (	

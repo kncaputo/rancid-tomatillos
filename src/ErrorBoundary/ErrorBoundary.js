@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { withRouter } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import './ErrorBoundary.css';
 
 class ErrorBoundary extends Component {
@@ -20,10 +20,22 @@ class ErrorBoundary extends Component {
 
   render() {
     if (this.state.hasError) {
-      return <p>Something went wrong.</p>;
+      console.log(this.props.history)
+      return(
+        <section>
+          <h2>Something went wrong.</h2>
+        	  <Link to='/'>
+							<button className='all-movies'
+								onClick={() => {this.setState({ hasError: false})}}
+							>
+								Back to All Movies
+							</button>
+						</Link>
+        </section>    
+      )
     }
     return this.props.children;
   }
 }
 
-export default withRouter(ErrorBoundary);
+export default ErrorBoundary;
