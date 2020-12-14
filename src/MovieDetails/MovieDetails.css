@@ -1,10 +1,14 @@
+* {
+	font-family: 'PT Sans Narrow', sans-serif;
+}
+
 .backdrop {
 	margin: 20px;
 }
 
-.poster {
+/* .poster {
 	margin: 10px;
-}
+} */
 
 .up-first {
 	display: flex;
@@ -12,6 +16,7 @@
 	background: #d3d3d342;
 	width: 490px;
 	margin: 20px;
+	padding: 10px;
 	justify-content: space-around;
 }
 
@@ -23,15 +28,35 @@
 	.poster {
 		display: none;
 	}
+
+	.poster-aside {
+		padding-left: 0;
+	}
 }
 
 .poster-aside {
-	width: 300px
+	width: 300px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	padding-left: 10px;
 }
 
 .movie-title {
-	font-size: 25px;
+	font-size: 40px;
 	text-align: center;
+	border-bottom: 1px solid;
+	padding-bottom: 5px;
+	margin: 10px;
+}
+
+.user-rating-title {
+	font-size: 20px;
+}
+
+.rating {
+	font-size: 25px;
+	margin-bottom: 0px;
 }
 
 .overview-box {
@@ -45,6 +70,7 @@
 
 .overview-title {
 	margin: 10px 5px;
+	font-size: 20px;
 }
 
 .overview-text {
@@ -62,18 +88,14 @@ section.movie-details-box {
 	display: flex;
 }
 
-.main-panel {
-	flex-grow: 1;
+.center-panel {
+	flex-grow: 2;
 }
+
 .side-panel {
 	background: lightgray;
-	flex-grow: 3;
+	flex-grow: 1;
 }
-
-.hero {
-
-}
-
 
 .banner-container {
   display: flex;
@@ -86,4 +108,9 @@ section.movie-details-box {
   height: 400px;
   width: 100%;
   object-fit: cover;
+}
+
+.rating-emoji {
+	margin: 0px;
+	font-size: xxx-large;
 }

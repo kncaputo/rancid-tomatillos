@@ -2,7 +2,7 @@ import React from 'react';
 import { fireEvent, screen, render } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import MovieCard from './MovieCard';
-import { MemoryRouter } from 'react-router-dom'
+import { MemoryRouter } from 'react-router-dom';
  
 describe('MovieCard', () => {
   let mockGetSingleMovie;

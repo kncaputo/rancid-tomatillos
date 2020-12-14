@@ -3,7 +3,7 @@ import ReactPlayer from 'react-player';
 import ListItem from '../ListItem/ListItem';
 import './MovieDetails.css';
 
-const MovieDetails = ({ movie, error, movieTrailers }) => {
+const MovieDetails = ({ movie, movieTrailers }) => {
 
 	const formatNum = (num, type) => {
 		return (
@@ -11,7 +11,7 @@ const MovieDetails = ({ movie, error, movieTrailers }) => {
       <ListItem label={type} body={`$${new Intl.NumberFormat('en-US').format(num)}`} />
 		);
   }
-
+   
   const formatGenres = (movie) => {
     if (!movie.genres) {
       return "Unavailable"
@@ -26,6 +26,18 @@ const MovieDetails = ({ movie, error, movieTrailers }) => {
     }
   }
 
+  const determineApproval = (rating) => {
+    if (rating < 4) {
+      return '🤢'
+    } else if (rating < 6) {
+      return '👌'
+    } else if (rating < 9) {
+      return '👍'
+    } else {
+      return '🤩'
+    }
+  }
+
   return (
     <section>
       <section className='banner-container'>
@@ -36,16 +48,18 @@ const MovieDetails = ({ movie, error, movieTrailers }) => {
         </section>
 
           <section className='center-panel'>
+
             <section className='movie-details-box'>
               {/* <ReactPlayer url={`https://www.youtube.com/watch?v=${movieTrailers.key}`} /> */}
               {/* <img className='card-img backdrop' src={movie.backdrop_path} /> */}
               <section className='up-first'>
                 <img className='card-img poster' src={movie.poster_path} alt={`${movie.title} poster`} />
                 <section className='poster-aside'>
-                  <h1 className='movie-title'><b>{movie.title}</b></h1>
+                  <p className='movie-title'><b>{movie.title}</b></p>
                   <section className='ratings-box'>
-                    <p className=''><b>Average User Rating:</b></p>
-                    <p className=''>{movie.average_rating.toFixed(2)}</p>
+                    <p className='user-rating-title'><b>Average User Rating:</b></p>
+                    <p className='rating'>{movie.average_rating.toFixed(2)} /10</p>
+                    <p className='rating-emoji'>{determineApproval(movie.average_rating)}</p>
                   </section>
                 </section>
               </section>

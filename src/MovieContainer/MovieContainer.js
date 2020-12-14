@@ -1,5 +1,6 @@
 import React from 'react';
 import MovieCard from '../MovieCard/MovieCard';
+import ErrorContainer from '../ErrorBoundary/ErrorBoundary';
 import './MovieContainer.css';
 
 const MovieContainer = ({ movies, getSingleMovie, error }) => {
@@ -21,10 +22,6 @@ const MovieContainer = ({ movies, getSingleMovie, error }) => {
     <section>
       <section className='movie-container'>
         {movieCards}
-      </section> :
-      <section>
-        <h1>Whoops, it looks like something went wrong!</h1>
-        <p> {error}</p>
       </section>
     </section>
   );
