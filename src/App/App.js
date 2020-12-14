@@ -3,7 +3,8 @@ import { Route, NavLink, Link, Redirect } from 'react-router-dom';
 import Header from '../Header/Header';
 import MovieContainer from '../MovieContainer/MovieContainer';
 import MovieDetails from '../MovieDetails/MovieDetails';
-import ErrorContainer from '../ErrorContainer/ErrorContainer';
+import ErrorBoundary from '../ErrorBoundary/ErrorBoundary';
+// import { ErrorBoundary, resetComponentState } from 'react-error-boundary';
 import ReactPlayer from 'react-player';
 import './App.css';
 import { fetchSingleMovie, fetchMovies, fetchTrailers } from '../apiCalls';
@@ -77,11 +78,11 @@ class App extends Component {
 						path='/' 
 						render={() => {
 							return (
-							<MovieContainer 
-								movies={this.state.movies} 
-								getSingleMovie={this.getSingleMovie}  
-								error={this.state.error} 
-							/>
+								<MovieContainer 
+									movies={this.state.movies} 
+									getSingleMovie={this.getSingleMovie}  
+									error={this.state.error} 
+								/>
 							);
 						}}
 					/> 
@@ -89,20 +90,36 @@ class App extends Component {
 						exact
 						path='/:id'
 						render={() => {
-							if (!this.state.movie) {
-								return(
-									<h1>Whoops, it looks like something went wrong.</h1>
-									// <Redirect to='/' component={MovieContainer}/>
-								);
-							}
+							// if (!this.state.movie) {
+							// 	return(
+							// 		<h1>Whoops, it looks like something went wrong.</h1>
+							// 		// <Redirect to='/' component={MovieContainer}/>
+							// 	);
+							// }
 							if(this.state.movie) {
 								return (	
-								<MovieDetails  
-									movie={this.state.movie} 
-									error={this.state.error}
-									// movieTrailers={this.state.movieTrailers[0]}
-								/>
-								);
+									<ErrorBoundary	
+										// fallbackRender={({ error, resetErrorBoundary }) => (
+										// 	<section role='alert'>
+										// 		<p>Uh oh</p>
+										// 		<p>{error.message}</p>
+										// 		<button
+										// 			onClick={() => {
+										// 				// resetComponentState();
+										// 				// resetErrorBoundary();
+										// 			}}
+										// 		>Try again
+										// 		</button>
+										// 	</section>
+										// )}
+									>
+										<MovieDetails  
+											movie={this.state.movie} 
+										
+											// movieTrailers={this.state.movieTrailers[0]}
+										/>
+									</ErrorBoundary>		
+										);
 							}
 						}}
 					/>

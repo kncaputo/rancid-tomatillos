@@ -3,7 +3,7 @@ import ReactPlayer from 'react-player';
 import ListItem from '../ListItem/ListItem';
 import './MovieDetails.css';
 
-const MovieDetails = ({ movie, error, movieTrailers }) => {
+const MovieDetails = ({ movie, movieTrailers }) => {
 
 	const formatNum = (num, type) => {
 		return (
