@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { Route, NavLink, Link, Redirect } from 'react-router-dom';
+import { Route, NavLink, Link, Redirect, Switch } from 'react-router-dom';
 import Header from '../Header/Header';
 import MovieContainer from '../MovieContainer/MovieContainer';
 import MovieDetails from '../MovieDetails/MovieDetails';
@@ -78,6 +78,7 @@ class App extends Component {
 						</NavLink>
 					</nav>
 				</header>
+				<Switch>
 					<Route 
 						exact 
 						path='/' 
@@ -97,22 +98,21 @@ class App extends Component {
 						render={() => {
 							if (!this.state.movie) {
 								return(
-									<h1>Whoops, it looks like something went wrong.</h1>
+									<h1>Whoops, it looks like something went wrong. Try refreshing the page or return to all movies.</h1>
 									// <Redirect to='/' component={MovieContainer}/>
 								);
 							}
-							if(this.state.movie) {
-								return (	
-									<ErrorBoundary>
-										<MovieDetails  
-											movie={this.state.movie} 
-											// movieTrailers={this.state.movieTrailers[0]}
-										/>
-									</ErrorBoundary>		
-								);
-							}
+							return (	
+								<ErrorBoundary>
+									<MovieDetails  
+										movie={this.state.movie} 
+										// movieTrailers={this.state.movieTrailers[0]}
+									/>
+								</ErrorBoundary>		
+							);
 						}}
 					/>
+				</Switch>
 			</main>
 		);
 	}
