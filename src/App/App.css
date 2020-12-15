@@ -20,24 +20,6 @@ h1 {
   text-shadow: 2px 3px #a5a5a5;
 }
 
-nav {
-  margin-right: 20px;
-  display: flex;
-  align-items: center;
-}
-
-button.all-movies {
-  background: none;
-  outline: none;
-  border: none;
-  font-size: 20px;
-}
-
-/* button.all-movies:hover {
-  cursor: pointer;
-  color: darkgreen;
-} */
-
 @media only screen and (max-width: 600px) {
   h1 {
     margin-left: 10px; 
@@ -47,7 +29,6 @@ button.all-movies {
   nav {
     margin-right: 10px;
   }
-  
 }
 
 button.back {
@@ -59,7 +40,3 @@ button.back {
 #blockColorblindContent {
   display: none;
 }
-/* 
-button.back {
-
-} */
