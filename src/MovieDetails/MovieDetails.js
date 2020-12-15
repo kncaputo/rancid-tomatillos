@@ -4,7 +4,7 @@ import ListItem from '../ListItem/ListItem';
 import { Link } from 'react-router-dom';
 import './MovieDetails.css';
 
-const MovieDetails = ({ movie, movieTrailers, goHome }) => {
+const MovieDetails = ({ movie, movieTrailers, resetState }) => {
 	const formatNum = (num, type) => {
 		return (
       num > 0 && 
@@ -43,7 +43,7 @@ const MovieDetails = ({ movie, movieTrailers, goHome }) => {
       		<nav>
 						<Link to='/'>
 								<button className='all-movies'
-									onClick={() => goHome()}
+									onClick={() => resetState()}
 								>
 									All Movies
 								</button>

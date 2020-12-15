@@ -5,9 +5,9 @@ import './MovieContainer.css';
 
 const MovieContainer = ({ movies, getSingleMovie, error }) => {
 
-  clearSingleMovie = () => {
+  // clearSingleMovie = () => {
 
-  }
+  // }
 
   const movieCards = movies.map(movie => {
     return (

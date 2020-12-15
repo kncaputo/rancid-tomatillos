@@ -16,7 +16,6 @@ class App extends Component {
 			movies: [],
       movie: null,
 			error: '',
-			isMovieDetails: false,
 			movieTrailers: []
 		}
 	}
@@ -44,7 +43,7 @@ class App extends Component {
 	getSingleMovie = (id) => {
 		fetchSingleMovie(id)
     .then(data => {
-			this.setState({ movie: data.movie, isMovieDetails: true })
+			this.setState({ movie: data.movie })
 		})
 		.catch(error => this.setState({ error: error.message }))
 
@@ -57,8 +56,8 @@ class App extends Component {
 		.catch(error => console.log(error))
 	}
 
-	goHome = () => {
-		this.setState({ isMovieDetails: false, movie: null, movieTrailers: [] })
+	resetState = () => {
+		this.setState({ movie: null, movieTrailers: [] })
 	}
 
 	render() {
@@ -66,17 +65,6 @@ class App extends Component {
 			<main className="App">
 				<header>
 					<h1>Rancid Tomatillos</h1>
-				
-					{/* <nav>
-						<NavLink to='/'>
-							{this.state.isMovieDetails && 
-								<button className='all-movies'
-									onClick={() => {this.goHome()}}
-								>
-									All Movies
-								</button>}
-						</NavLink>
-					</nav> */}
 				</header>
 				<Switch>
 					<Route 
@@ -101,7 +89,7 @@ class App extends Component {
 							if (!this.state.movie) {
 								return(
 									<section>
-										<h1>Whoops, it looks like something went wrong. Try refreshing the page or return to all movies.</h1>
+										<h2>Whoops, it looks like something went wrong. Try refreshing the page or return to all movies.</h2>
 										<Link to='/'>
 											<button className='back'>Back to Movies</button>
 										</Link>
@@ -112,7 +100,7 @@ class App extends Component {
 								<ErrorBoundary>
 									<MovieDetails  
 										movie={this.state.movie} 
-										goHome={this.goHome}
+										resetState={this.resetState}
 										getSingleMovie={this.getSingleMovie}
 										// movieTrailers={this.state.movieTrailers[0]}
 									/>
