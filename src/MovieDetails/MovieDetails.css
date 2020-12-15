@@ -20,11 +20,7 @@ button.all-movies {
 	background: none;
 	font-size: 20px;
 	border: none;
-}
-
-button.all-movies {
-	/* outline: none; */
-	
+	outline: none;
 }
 
 .up-first {

@@ -23,31 +23,27 @@ class App extends Component {
   componentDidMount = () => {
 		fetchMovies()
 		.then(data => {
-			this.setState({ movies: data.movies })
+			if (window.location.pathname === '/') {
+				this.setState({ movies: data.movies })
+			}
 		})
 		.then(() => {
 			if (window.location.pathname !== '/') {
 				this.getSingleMovie(window.location.pathname.slice(1))
-				return(
-					<MovieDetails  
-						movie={this.state.movie} 
-						error={this.state.error}
-						// movieTrailers={this.state.movieTrailers[0]}
-					/>
-				);
-			}	
+			}
 		})
 		.catch(error => this.setState({ error: error.message }))
 	}
 	
 	getSingleMovie = (id) => {
-		fetchSingleMovie(id)
+		return fetchSingleMovie(id)
     .then(data => {
 			this.setState({ movie: data.movie })
 		})
+		.then(() => {
+			return this.getMovieTrailers(id)
+		})
 		.catch(error => this.setState({ error: error.message }))
-
-		this.getMovieTrailers(id);
 	}
 
 	getMovieTrailers = (id) => {
