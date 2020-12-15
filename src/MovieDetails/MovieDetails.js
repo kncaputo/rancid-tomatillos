@@ -1,19 +1,17 @@
 import React from 'react';
 import ReactPlayer from 'react-player';
 import ListItem from '../ListItem/ListItem';
+import { Link } from 'react-router-dom';
 import './MovieDetails.css';
 
-const MovieDetails = ({ movie, movieTrailers }) => {
-
+const MovieDetails = ({ movie, movieTrailers, goHome }) => {
 	const formatNum = (num, type) => {
 		return (
       num > 0 && 
       <ListItem label={type} body={`$${new Intl.NumberFormat('en-US').format(num)}`} />
 		);
   }
-  if(movie.title === 'Mulan') {
-    throw Error('Dis Mulan')
-  }
+
   const formatGenres = (movie) => {
     if (!movie.genres) {
       return "Unavailable"
@@ -42,6 +40,15 @@ const MovieDetails = ({ movie, movieTrailers }) => {
 
   return (
     <section>
+      		<nav>
+						<Link to='/'>
+								<button className='all-movies'
+									onClick={() => goHome()}
+								>
+									All Movies
+								</button>
+						</Link>
+					</nav>
       <section className='banner-container'>
         <img className='card-img banner-img' src={movie.backdrop_path} alt={`${movie.title} banner`} />
       </section>

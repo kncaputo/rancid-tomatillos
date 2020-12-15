@@ -67,7 +67,7 @@ class App extends Component {
 				<header>
 					<h1>Rancid Tomatillos</h1>
 				
-					<nav>
+					{/* <nav>
 						<NavLink to='/'>
 							{this.state.isMovieDetails && 
 								<button className='all-movies'
@@ -76,7 +76,7 @@ class App extends Component {
 									All Movies
 								</button>}
 						</NavLink>
-					</nav>
+					</nav> */}
 				</header>
 				<Switch>
 					<Route 
@@ -107,11 +107,13 @@ class App extends Component {
 										</Link>
 									</section>
 								);
-							}
+							} 
 							return (	
 								<ErrorBoundary>
 									<MovieDetails  
 										movie={this.state.movie} 
+										goHome={this.goHome}
+										getSingleMovie={this.getSingleMovie}
 										// movieTrailers={this.state.movieTrailers[0]}
 									/>
 								</ErrorBoundary>		

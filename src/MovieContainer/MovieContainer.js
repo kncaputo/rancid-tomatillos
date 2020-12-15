@@ -4,6 +4,11 @@ import ErrorContainer from '../ErrorBoundary/ErrorBoundary';
 import './MovieContainer.css';
 
 const MovieContainer = ({ movies, getSingleMovie, error }) => {
+
+  clearSingleMovie = () => {
+
+  }
+
   const movieCards = movies.map(movie => {
     return (
       <MovieCard
