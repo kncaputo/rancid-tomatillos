@@ -48,13 +48,13 @@ const MovieDetails = ({ movie, movieTrailers, resetState, getSingleMovie }) => {
 
   return (
     <section>
-      		<nav>
-						<Link to='/' onClick={() => resetState()}>
-								<button className='all-movies'>
-									All Movies
-								</button>
-						</Link>
-					</nav>
+      <nav>
+        <Link to='/' onClick={() => resetState()}>
+            <button className='all-movies'>
+              All Movies
+            </button>
+        </Link>
+      </nav>
       <section className='banner-container'>
         <img className='card-img banner-img' src={movie.backdrop_path} alt={`${movie.title} banner`} />
       </section>

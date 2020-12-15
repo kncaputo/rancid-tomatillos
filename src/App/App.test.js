@@ -10,11 +10,14 @@ jest.mock('../apiCalls');
 describe('App', () => {
 	beforeEach(() => {
 		fetchMovies.mockResolvedValueOnce({movies: mockMovieData});
-		
+		fetchSingleMovie.mockResolvedValueOnce(mockSingleMovieData);
+		fetchTrailers.mockResolvedValueOnce(mockMovieTrailers);
+
 		render(
 			<MemoryRouter>
 				<App />
-			</MemoryRouter>)
+			</MemoryRouter>
+		);
 	});
 
 	it('should render page header on page load', () => {
@@ -32,7 +35,7 @@ describe('App', () => {
 	it('should render single movie on click', async () => {
 		fetchSingleMovie.mockResolvedValueOnce(mockSingleMovieData);
 		fetchTrailers.mockResolvedValueOnce(mockMovieTrailers);
-
+		
 		const movieCard = screen.getByText('Rogue');
 		
 		fireEvent.click(movieCard);
@@ -42,15 +45,15 @@ describe('App', () => {
 		expect(runTime).toBeInTheDocument();
 	});
 
-	it('should return home when back button is clicked', async () => {
+	it('should return home when back button is clicked', async () => {	
 		fetchSingleMovie.mockResolvedValueOnce(mockSingleMovieData);
 		fetchTrailers.mockResolvedValueOnce(mockMovieTrailers);
-	
+		
 		const movieCard = screen.getByText('Rogue');
 		
 		fireEvent.click(movieCard);
 		
-		const backButton = await waitFor(() => screen.getByText('Back'));
+		const backButton = await waitFor(() => screen.getByText('All Movies'));
 
 		fireEvent.click(backButton);
 
@@ -59,6 +62,6 @@ describe('App', () => {
 		
 		expect(title1).toBeInTheDocument();
 		expect(title2).toBeInTheDocument();
-		expect(screen.queryByText('Back')).not.toBeInTheDocument();
+		expect(screen.queryByText('All Movies')).not.toBeInTheDocument();
 	});
 });
