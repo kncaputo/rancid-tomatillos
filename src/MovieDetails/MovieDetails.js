@@ -1,11 +1,19 @@
-import React from 'react';
-import ReactPlayer from 'react-player';
+import React, { useEffect } from 'react';
+// import ReactPlayer from 'react-player';
 import ListItem from '../ListItem/ListItem';
 import { Link } from 'react-router-dom';
 import './MovieDetails.css';
 
-const MovieDetails = ({ movie, movieTrailers, resetState }) => {
-	const formatNum = (num, type) => {
+const MovieDetails = ({ movie, movieTrailers, resetState, getSingleMovie }) => {
+  const urlId = +window.location.pathname.slice(1)
+  
+  useEffect(() => {
+    if (urlId !== +movie.id) {
+      return getSingleMovie(urlId)
+    }
+	}, []);
+  
+   const formatNum = (num, type) => {
 		return (
       num > 0 && 
       <ListItem label={type} body={`$${new Intl.NumberFormat('en-US').format(num)}`} />
@@ -41,10 +49,8 @@ const MovieDetails = ({ movie, movieTrailers, resetState }) => {
   return (
     <section>
       		<nav>
-						<Link to='/'>
-								<button className='all-movies'
-									onClick={() => resetState()}
-								>
+						<Link to='/' onClick={() => resetState()}>
+								<button className='all-movies'>
 									All Movies
 								</button>
 						</Link>

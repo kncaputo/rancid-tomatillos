@@ -20,14 +20,11 @@ class ErrorBoundary extends Component {
 
   render() {
     if (this.state.hasError) {
-      console.log(this.props.history)
       return(
         <section>
           <h2>Something went wrong.</h2>
-        	  <Link to='/'>
-							<button className='all-movies'
-								onClick={() => {this.setState({ hasError: false})}}
-							>
+        	  <Link to='/' onClick={() => {this.setState({ hasError: false})}}>
+							<button className='all-movies'>
 								Back to All Movies
 							</button>
 						</Link>
