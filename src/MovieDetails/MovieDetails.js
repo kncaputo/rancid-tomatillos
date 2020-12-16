@@ -1,17 +1,25 @@
-import React from 'react';
-import ReactPlayer from 'react-player';
+import React, { useEffect } from 'react';
+// import ReactPlayer from 'react-player';
 import ListItem from '../ListItem/ListItem';
+import { Link } from 'react-router-dom';
 import './MovieDetails.css';
 
-const MovieDetails = ({ movie, movieTrailers }) => {
-
-	const formatNum = (num, type) => {
+const MovieDetails = ({ movie, movieTrailers, resetState, getSingleMovie }) => {
+  const urlId = +window.location.pathname.slice(1)
+  
+  useEffect(() => {
+    if (urlId !== +movie.id) {
+      getSingleMovie(urlId)
+    }
+	});
+  
+   const formatNum = (num, type) => {
 		return (
       num > 0 && 
       <ListItem label={type} body={`$${new Intl.NumberFormat('en-US').format(num)}`} />
 		);
   }
-   
+
   const formatGenres = (movie) => {
     if (!movie.genres) {
       return "Unavailable"
@@ -40,6 +48,13 @@ const MovieDetails = ({ movie, movieTrailers }) => {
 
   return (
     <section>
+      <nav>
+        <Link to='/' onClick={() => resetState()}>
+            <button className='all-movies'>
+              All Movies
+            </button>
+        </Link>
+      </nav>
       <section className='banner-container'>
         <img className='card-img banner-img' src={movie.backdrop_path} alt={`${movie.title} banner`} />
       </section>

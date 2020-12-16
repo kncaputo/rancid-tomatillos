@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { withRouter } from 'react-router-dom'
-// import './ErrorBoundary.css';
+import { Link } from 'react-router-dom';
+import './ErrorBoundary.css';
 
 class ErrorBoundary extends Component {
   constructor(props) {
@@ -11,22 +11,28 @@ class ErrorBoundary extends Component {
   }
 
   static getDerivedStateFromError(error) {
-    // Update state so the next render will show the fallback UI.
     return { hasError: true };
   }
 
   componentDidCatch(error, errorInfo) {
-    // You can also log the error to an error reporting service
     console.log(error, errorInfo);
   }
 
   render() {
     if (this.state.hasError) {
-      // You can render any custom fallback UI
-      return <h1>Something went wrong.</h1>;
+      return(
+        <section>
+          <h2>Something went wrong.</h2>
+        	  <Link to='/' onClick={() => {this.setState({ hasError: false})}}>
+							<button className='all-movies'>
+								Back to All Movies
+							</button>
+						</Link>
+        </section>    
+      )
     }
     return this.props.children;
   }
 }
 
-export default withRouter(ErrorBoundary);
+export default ErrorBoundary;

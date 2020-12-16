@@ -1,9 +1,9 @@
 import React from 'react';
 import MovieCard from '../MovieCard/MovieCard';
-import ErrorContainer from '../ErrorBoundary/ErrorBoundary';
 import './MovieContainer.css';
 
-const MovieContainer = ({ movies, getSingleMovie, error }) => {
+const MovieContainer = ({ movies, getSingleMovie }) => {
+
   const movieCards = movies.map(movie => {
     return (
       <MovieCard

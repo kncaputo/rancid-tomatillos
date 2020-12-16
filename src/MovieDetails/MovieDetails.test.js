@@ -4,15 +4,19 @@ import '@testing-library/jest-dom';
 import { MemoryRouter } from 'react-router';
 import MovieDetails from './MovieDetails';
 import { mockSingleMovieData } from '../data';
+jest.mock('../apiCalls');
 
 describe('MovieDetails', () => {
-	it('should render a single movie if status code is below 400', () => {
-
+	it('should render a single movie', () => {
+	const mockGetSingleMovie = jest.fn();
+		mockGetSingleMovie.mockResolvedValueOnce(mockSingleMovieData.movie)
+		
 		render( 
 			<MemoryRouter>
 				<MovieDetails 
-					movie={mockSingleMovieData.movie}
-					error=''  
+					movie={mockSingleMovieData.movie} 
+					resetState={jest.fn()}
+					getSingleMovie={mockGetSingleMovie} 
 				/>
 			</MemoryRouter>
 		);
@@ -20,7 +24,7 @@ describe('MovieDetails', () => {
 		const title = screen.getByText('Rogue');
 		const releaseDate = screen.getByText('2020-08-20');
 		const genres = screen.getByText('Action');
-		const rating = screen.getByText('6.43')
+		const rating = screen.getByText('6.43 /10')
 
 		expect(title).toBeInTheDocument();
 		expect(releaseDate).toBeInTheDocument();
