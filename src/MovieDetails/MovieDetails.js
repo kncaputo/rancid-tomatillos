@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import './MovieDetails.css';
 
 const MovieDetails = ({ movie, movieTrailers, resetState, getSingleMovie }) => {
-  const urlId = +window.location.pathname.slice(1)
+  const urlId = +window.location.pathname.slice(19)
   
   useEffect(() => {
     if (urlId !== +movie.id) {

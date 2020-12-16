@@ -21,13 +21,15 @@ class App extends Component {
   componentDidMount = () => {
 		fetchMovies()
 		.then(data => {
-			if (window.location.pathname === '/') {
+			if (window.location.pathname === '/rancid-tomatillos/') {
 				this.setState({ movies: data.movies })
 			}
 		})
 		.then(() => {
-			if (window.location.pathname !== '/') {
-				this.getSingleMovie(+window.location.pathname.slice(1))
+			if (window.location.pathname !== '/rancid-tomatillos/') {
+				this.getSingleMovie(+window.location.pathname.slice(19))
+					console.log(window.location.pathname)
+
 			}
 		})
 		.catch(error => this.setState({ error: error.message }))
