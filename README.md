@@ -37,5 +37,5 @@ To view the test suite:
 - Original Project Spec: https://frontend.turing.io/projects/module-3/rancid-tomatillos-v3.html
 
 ## Contributors:
-Kara Caputo - GitHub: https://github.com/kncaputo
-Lola Dolinsky - GitHub: https://github.com/lo-la-do-li
+- Kara Caputo - GitHub: https://github.com/kncaputo
+- Lola Dolinsky - GitHub: https://github.com/lo-la-do-li
