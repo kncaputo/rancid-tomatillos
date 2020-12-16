@@ -5,7 +5,7 @@ export const fetchMovies = () => {
       throw Error('Sorry! We\'ve encountered an error')
     }
     return response.json()
-  });
+  })
 }
 
 export const fetchSingleMovie = (id) => {
@@ -15,7 +15,7 @@ export const fetchSingleMovie = (id) => {
       throw Error('Sorry! We\'ve encountered an error')
     }
     return response.json()
-  });
+  })
 }
 
 export const fetchTrailers = (id) => {
