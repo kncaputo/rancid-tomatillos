@@ -33,8 +33,8 @@ class App extends Component {
 		.catch(error => this.setState({ error: error.message }))
 	}
 	
-	getSingleMovie = async (id) => {
-		return await fetchSingleMovie(id)
+	getSingleMovie = (id) => {
+		return fetchSingleMovie(id)
     .then(data => {
 			this.setState({ movie: data.movie })
 		})

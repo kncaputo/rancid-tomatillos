@@ -10,8 +10,8 @@ jest.mock('../apiCalls');
 describe('App', () => {
 	beforeEach(() => {
 		fetchMovies.mockResolvedValueOnce({movies: mockMovieData});
-		fetchSingleMovie.mockResolvedValueOnce(mockSingleMovieData);
-		fetchTrailers.mockResolvedValueOnce(mockMovieTrailers);
+		fetchSingleMovie.mockResolvedValue(mockSingleMovieData);
+		fetchTrailers.mockResolvedValue(mockMovieTrailers);
 
 		render(
 			<MemoryRouter>
@@ -33,8 +33,6 @@ describe('App', () => {
 	});
 
 	it('should render single movie on click', async () => {
-		fetchSingleMovie.mockResolvedValueOnce(mockSingleMovieData);
-		fetchTrailers.mockResolvedValueOnce(mockMovieTrailers);
 		
 		const movieCard = screen.getByText('Rogue');
 		
@@ -45,9 +43,7 @@ describe('App', () => {
 		expect(runTime).toBeInTheDocument();
 	});
 
-	it('should return home when back button is clicked', async () => {	
-		fetchSingleMovie.mockResolvedValueOnce(mockSingleMovieData);
-		fetchTrailers.mockResolvedValueOnce(mockMovieTrailers);
+	it('should return home when All Movies button is clicked', async () => {	
 		
 		const movieCard = screen.getByText('Rogue');
 		
