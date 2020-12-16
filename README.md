@@ -20,7 +20,7 @@ Our stretch goals for this project were to further understand Router as well as 
 - Webpack
 
 ## GIF of the Working Application
-
+![Browse Movies and Go Back to view again in Browser](http://www.giphy.com/gifs/czKcOebs3ddx2uqDJ2)
 
 ## Setup
 Download Instructions 
