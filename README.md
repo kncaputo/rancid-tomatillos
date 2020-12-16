@@ -35,7 +35,7 @@ To view the test suite:
 - Run `npm test` in your terminal
 
 ## Links and Deployed Site
-- [Deployed Site]()
+- [Deployed Site](http://kncaputo.github.io/rancid-tomatillos)
 - Project Repository: https://github.com/kncaputo/rancid-tomatillos
 - Original Project Spec: https://frontend.turing.io/projects/module-3/rancid-tomatillos-v3.html
 
