@@ -9,9 +9,9 @@ const MovieDetails = ({ movie, movieTrailers, resetState, getSingleMovie }) => {
   
   useEffect(() => {
     if (urlId !== +movie.id) {
-      return getSingleMovie(urlId)
+      getSingleMovie(urlId)
     }
-	}, []);
+	});
   
    const formatNum = (num, type) => {
 		return (
