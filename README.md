@@ -6,6 +6,8 @@ This paired project was the first project of Module 3 of the Turing School of So
 
 We achieved full functionality of the project spec with only two weeks of exposure to React. The app allows users to view movies fetched from an API. The original project spec lists a login and star rating features as requirements, but these were removed omitted for our cohort, with an emphasis being placed insted on Router and async testing.
 
+Our stretch goals for this project were to further understand Router as well as how to throw errors. This included implementing `ErrorBoundary` and utitilizing Router to ensure our MovieDetails page persisted upon reload. 
+
 ### The goals for this project were:
   - Gain competency with React fundamentals
   - Learn how to test React components & asynchronous JS
