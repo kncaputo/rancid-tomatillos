@@ -17,7 +17,6 @@ Our stretch goals for this project were to further understand Router as well as 
 - React
 - React Router
 - Jest
-- Webpack
 
 ## GIF of the Working Application
 ![Browse Movies and Go Back to view again in Browser](https://media.giphy.com/media/czKcOebs3ddx2uqDJ2/giphy.gif)
